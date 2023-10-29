@@ -1,12 +1,12 @@
-# wip
 # Define the function to run when directory changes
 _git-plugin-trap() {
+  echo -n
   export GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo)"
   refresh_theme
 }
 
-# Execute the function when prompt is displayed
-export PROMPT_FUNCTION="_git-plugin-trap"
+# Run the function when prompt displayed
+export PROMPT_COMMAND="_git-plugin-trap"
 
 # Aliases
 alias gp="git push"
