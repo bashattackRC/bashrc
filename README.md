@@ -1,2 +1,5 @@
 # ohmybash
-bashrc makes you spam "OH MY BASH!"
+Fresh transformation of Bash from a useless playground to a full-featured shell.
+
+## Install
+Coming soon ;)
