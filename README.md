@@ -5,7 +5,7 @@ Fresh transformation of Bash from a useless playground to a full-featured shell.
 Run this command:
 
 ```bash
-bash -c $(curl -s https://github.com/TylerMS887/ohmybash/raw/main/install.sh)
+bash -c $(curl -s https://raw.githubusercontent.com/TylerMS887/ohmybash/main/omb_init.sh)
 ```
 
 You will be guided on how to install the software.
