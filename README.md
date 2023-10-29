@@ -8,4 +8,4 @@ Run this command:
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/install.sh)"
 ```
 
-You will be guided on how to install the software.
+To update, change "install.sh" to "update.sh" at the end of the command.
