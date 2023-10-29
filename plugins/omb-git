@@ -1,1 +1,17 @@
 # wip
+# Define the function to run when directory changes
+_git-plugin-trap() {
+  export GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo)"
+  refresh_theme
+}
+
+# Trap the shell and run the function when wd changes
+trap '_git-plugin-trap' DEBUG
+
+# Aliases
+alias gp="git push"
+alias gcf="git config --list"
+alias gl="git pull"
+alias gc="git commit"
+alias gs="git stash"
+alias gsd="git stash ."
