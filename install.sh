@@ -19,7 +19,7 @@ echo -n '''
 # Print info about shell change
 echo "We are going to change your main shell to bash so OMB can function."
 echo "Enter your password if you are asked to do so."
-echo "\e[0;36mPress Enter to do this now...\e[0m (Ctrl+C to cancel install)"
+echo -e "\e[0;36mPress Enter to do this now...\e[0m (Ctrl+C to cancel install)"
 read -s # waits until enter pressed
 
 # Do it now
@@ -52,10 +52,11 @@ echo
 
 # Install OMB
 echo "Installing..."
-git clone https://github.com/TylerMS887/ohmybash ~/.ohmybash-git-folder -q
+git clone https://github.com/TylerMS887/ohmybash ~/.omb-git -q
 cat ~/.ohmybash-git-folder/omb_init.sh >> ~/.bashrc
-mkdir ~/.ohmybash
-cp -r ~/.ohmybash-git-folder/themes ~/.ohmybash/themes
-cp -r ~/.ohmybash-git-folder/themes ~/.ohmybash/plugins
-echo "Installed! Type the following command and go 'OH MY BASH':"
+mkdir ~/.omb
+cp -r ~/.omb-git/themes ~/.omb/themes
+cp -r ~/.omb-git/plugins ~/.omb/plugins
+rm -rf ~/.omb-git
+echo "Installed! Type the following command to use Oh My Bash:"
 echo "   exec /bin/bash"
