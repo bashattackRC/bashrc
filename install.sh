@@ -53,10 +53,12 @@ echo
 # Install OMB
 echo "Installing..."
 git clone https://github.com/TylerMS887/ohmybash ~/.omb-git -q
-cat ~/.omb-git/omb_init.sh >> ~/.bashrc
 mkdir ~/.omb
 cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
+cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
+echo >> ~/.bashrc
+echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
 echo "Installed! Type the following command to use Oh My Bash:"
 echo "   exec /bin/bash"
