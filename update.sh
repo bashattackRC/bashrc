@@ -29,5 +29,5 @@ mkdir ~/.omb
 cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
 rm -rf ~/.omb-git
-echo "Updated! Type the following command to use Oh My Bash:"
-echo "   exec /bin/bash"
+echo "Updated!"
+exec bash
