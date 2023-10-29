@@ -2,5 +2,5 @@ function sudo() {
   if [ -z $1 ]; then
      $(which sudo) !!
   else
-     $9which sudo) $@
+     $(which sudo) $@
   fi
