@@ -1,0 +1,11 @@
+# Define some color variables
+BLUE="\[\e[34m\]"
+PURPLE="\[\e[35m\]"
+GREEN="\[\e[32m\]"
+RESET="\[\e[0m\]"
+
+# Get the user name and domain name
+USER_DOMAIN=$BLUE$(whoami)$RESET on $PURPLE$(hostname)$RESET
+
+# Set the prompt variable PS1 to the desired format
+PS1="\n$USER_DOMAIN\n\W$GREEN ₿ $RESET"
