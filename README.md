@@ -8,4 +8,4 @@ Run this command:
 exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/install.sh)"
 ```
 
-To update, change "install.sh" to "update.sh" at the end of the command.
+To update, change "install.sh" to "update.sh" at the end of the command, or run `omb update`.
