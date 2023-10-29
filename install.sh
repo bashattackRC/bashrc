@@ -52,7 +52,7 @@ echo
 
 # Install OMB
 echo "Installing..."
-git clone https://github.com/TylerMS887/ohmybash ~/.omb-git -q
+git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
 mkdir ~/.omb
 cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
