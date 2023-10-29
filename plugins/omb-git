@@ -5,8 +5,8 @@ _git-plugin-trap() {
   refresh_theme
 }
 
-# Trap the shell and run the function when wd changes
-trap '_git-plugin-trap' DEBUG
+# Execute the function when prompt is displayed
+export PROMPT_FUNCTION="_git-plugin-trap"
 
 # Aliases
 alias gp="git push"
