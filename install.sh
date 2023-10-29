@@ -48,10 +48,14 @@ echo 'export plugins=("git")' >> ~/.bashrc
 echo '' >> ~/.bashrc #Newline in bashrc
 
 echo 'export theme="simpleansi"' >> ~/.bashrc
-
 echo
+
 # Install OMB
 echo "Installing..."
-cat omb_init.sh >> ~/.bashrc
+git clone https://github.com/TylerMS887/ohmybash ~/.ohmybash-git-folder -q
+cat ~/.ohmybash-git-folder/omb_init.sh >> ~/.bashrc
+mkdir ~/.ohmybash
+cp -r ~/.ohmybash-git-folder/themes ~/.ohmybash/themes
+cp -r ~/.ohmybash-git-folder/themes ~/.ohmybash/plugins
 echo "Installed! Type the following command and go 'OH MY BASH':"
 echo "   exec /bin/bash"
