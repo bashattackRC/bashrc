@@ -5,7 +5,7 @@ Fresh transformation of Bash from a useless playground to a full-featured shell.
 Run this command:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/install.sh)"
+exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/install.sh)"
 ```
 
 To update, change "install.sh" to "update.sh" at the end of the command.
