@@ -5,4 +5,8 @@ GREEN="\[\033[0;32m\]"
 RESET="\[\033[0m\]"
 
 # Define prompt
-PS1="\n${BLUE}\u${RESET} @ ${RED}\h${RESET}\n\w | ${GREEN}₿${RESET} "
+if [ -z "$GIT_BRANCH" ]; then
+   PS1="\n${BLUE}\u${RESET} @ ${RED}\h${RESET}\n\w | ${GREEN}₿${RESET} "
+else
+   PS1="\n${BLUE}\u${RESET} @ ${RED}\h${RESET}\n\w@$GIT_BRANCH$ | ${GREEN}₿${RESET} "
+fi
