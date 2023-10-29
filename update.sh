@@ -23,7 +23,7 @@ fi
 # Update OMB
 echo "Updating..."
 git clone https://github.com/TylerMS887/ohmybash ~/.omb-git -q
-cat ~/.omb-git/omb_init.sh >> ~/.bashrc
+cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
 rm -rf ~/.omb
 mkdir ~/.omb
 cp -r ~/.omb-git/themes ~/.omb/themes
