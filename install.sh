@@ -60,5 +60,5 @@ cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
 echo >> ~/.bashrc
 echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
-echo "Installed! Type the following command to use Oh My Bash:"
-echo "   exec /bin/bash"
+echo "Installed!"
+exec bash
