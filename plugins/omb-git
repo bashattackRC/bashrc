@@ -1,7 +1,7 @@
 # Define the function to run when directory changes
 _git-plugin-trap() {
   echo -n
-  export GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo)"
+  export GIT_BRANCH="$(git branch --show-current 2>/dev/null || echo)"
   refresh_theme
 }
 
