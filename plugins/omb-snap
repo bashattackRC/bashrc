@@ -1,3 +1,3 @@
-alias sni="snap install"
-alias snu="snap remove"
+alias sni="sudo snap install"
+alias snu="sudo snap remove"
 alias snr="snap run"
