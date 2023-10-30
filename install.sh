@@ -6,6 +6,12 @@ set +x # exit on errors
 # Clear the console to clean everything
 clear
 
+# Go back to bash on Ctrl+C
+function exec_to_bash {
+  exec bash
+}
+trap SIGINT exec_to_bash
+
 # Echo the project name
 echo -n '''
  ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗    ██████╗  █████╗ ███████╗██╗  ██╗
@@ -14,7 +20,7 @@ echo -n '''
 ██║   ██║██╔══██║    ██║╚██╔╝██║  ╚██╔╝      ██╔══██╗██╔══██║╚════██║██╔══██║
 ╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║       ██████╔╝██║  ██║███████║██║  ██║
  ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-    Version '''; echo -m "$OMBVER"; echo -e '      \e]8;;http://github.com/ohmybashrc/ohmybash\aGitHub...\e]8;;\a'  
+    Version '''; echo -n "$OMBVER"; echo -e '                      \e]8;;http://github.com/ohmybashrc/ohmybash\aGitHub...\e]8;;\a'  
 # Print info about shell change
 echo "We are going to change your main shell to bash so OMB can function."
 echo "Enter your password if you are asked to do so."
@@ -60,4 +66,4 @@ echo >> ~/.bashrc
 echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
 echo "Installed!"
-exec bash
+exec_to_bash
