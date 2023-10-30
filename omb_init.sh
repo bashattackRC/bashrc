@@ -91,7 +91,8 @@ omb() {
   elif [[ "$1" == "version" ]]; then
       echo "$OMB_VERSION on $BASH_REAL_VERSION"
       echo "Licensed under the MIT license"
-      echo "User: $(whoami) Path to bash: $BASH"
+      echo "User: $(id -un)@$(hostname)"
+      echo "Path to bash: $BASH"
   elif [[ "$1" == "reload" ]]; then
       exec bash
   else
