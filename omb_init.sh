@@ -131,6 +131,13 @@ enable plugins, choose themes, and more.
       echo "Path to bash: $BASH"
   elif [[ "$1" == "reload" ]]; then
       exec bash
+  elif [[ "$1" == "help" ]]; then
+      if [ -z "$2" ]; then
+        echo "Please specify a document (e.g. omb help omb):"
+        ls ~/.omb/help --color=none
+        return
+      fi
+      less ~/.omb/help/$2.omb-help
   elif [[ "$1" == "web" ]]; then
       xdg-open "https://ohmybashrc.github.io"
   else
