@@ -1,7 +1,9 @@
 # Define dummy git trap in case git plugin is disabled.
 # git plugin can redefine the function
 
-function _git-plugin-trap {}
+ _git-plugin-trap() {
+     echo -n
+ }
 
 # Define Functions for Extensions
 function refresh_theme() {
