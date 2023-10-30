@@ -51,6 +51,7 @@ omb() {
     echo "  reload    Re-execute bash"
     echo "  edit      Edit .bashrc"
     echo "  version   Echo current version"
+    echo "  web       Visit Oh My Bash on the web"
     echo ""
     echo "--- Tools ---------------------------------------"
     echo "  plugin"
@@ -110,6 +111,8 @@ omb() {
       echo "Path to bash: $BASH"
   elif [[ "$1" == "reload" ]]; then
       exec bash
+  elif [[ "$1" == "web" ]]; then
+      xdg-open "https://ohmybashrc.github.io"
   else
       echo "Invalid command"
   fi
