@@ -6,9 +6,12 @@ export OMB_VERSION="0.9"
 
 # Define dummy git trap in case git plugin is disabled.
 # git plugin can redefine the function
- _git-plugin-trap() {
+_git-plugin-trap() {
      echo -n
- }
+}
+
+# Append to bash history, instead of overwriting
+shopt -s histappend
 
 # Define Functions for Extensions
 function refresh_theme() {
@@ -101,7 +104,7 @@ omb() {
                          __/ |                        
                         |___/"
       echo "$OMB_VERSION on $BASH_REAL_VERSION"
-      echo "Licensed under the MIT license"
+      echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
       echo "Path to bash: $BASH"
   elif [[ "$1" == "reload" ]]; then
