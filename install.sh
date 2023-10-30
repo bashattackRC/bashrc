@@ -59,6 +59,7 @@ echo
 echo "Installing..."
 git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
 mkdir ~/.omb
+cp -r ~/.omb-git/help ~/.omb/help
 cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
 cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
