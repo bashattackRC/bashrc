@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: MIT
+# Loader for Oh My Bash. This is required to load plugins, themes,
+# and others.
+
 # Expose ohmybash version to BASH_VERSION
 export BASH_REAL_VERSION="$BASH_VERSION"
 export BASH_VERSION="$BASH_VERSION omb-0.9"
@@ -49,31 +53,37 @@ source ~/.omb/themes/omb-$theme
 # Add "omb" Pseudo-Program
 omb() {
   if [[ "$1" == "" ]]; then
-    echo "This function allows you to configure Oh My Bash,"
-    echo "enable plugins, choose themes, and more."
-    echo "--- Usage ---------------------------------------"
-    echo "  omb command [tool]"
-    echo ""
-    echo "--- Commands ------------------------------------"
-    echo "  plugin    Manage plugins"
-    echo "  theme     Manage themes"
-    echo "  update    Update Oh My Bash"
-    echo "  reload    Re-execute bash"
-    echo "  edit      Edit .bashrc"
-    echo "  version   Echo current version"
-    echo "  web       Visit Oh My Bash on the web"
-    echo ""
-    echo "--- Tools ---------------------------------------"
-    echo "  plugin"
-    echo "    enable   Enable a plugin"
-    echo "    disable  Disable a plugin"
-    echo "    list     List all plugins"
-    echo ""
-    echo "  theme"
-    echo "    enable   Enable a theme"
-    echo "    list     List all themes"
-    echo ""
-    echo "  update, reload, edit and version have no tools."
+    echo 'This function allows you to configure Oh My Bash,
+enable plugins, choose themes, and more.
+--- Usage ---------------------------------------
+  omb command [tool]
+
+--- Commands ------------------------------------
+  Utilities
+    plugin    Manage plugins
+    theme     Manage themes
+    update    Update Oh My Bash
+    reload    Re-execute bash
+    edit      Edit .bashrc
+
+  About
+    help      Read help pages
+    web       Visit Oh My Bash on the web
+    version   Echo current version
+
+--- Tools ---------------------------------------
+  plugin
+    enable   Enable a plugin
+    disable  Disable a plugin
+    list     List all plugins
+
+  theme
+    enable   Enable a theme
+    list     List all themes
+
+  help accepts the name of a help document.
+
+  update, reload, edit, web and version have no tools.'  | more
     return
   fi
 
@@ -114,7 +124,7 @@ omb() {
  | |__| | | | | | |  | | |_| | | |_) | (_| \\__ \\ | | |
   \\____/|_| |_| |_|  |_|\\__, | |____/ \\__,_|___/_| |_|
                          __/ |                        
-                        |___/                       \e]8;;\a"
+                        |___/                         \e]8;;\a"
       echo "$OMB_VERSION on $BASH_REAL_VERSION"
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
