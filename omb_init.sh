@@ -21,13 +21,17 @@ source ~/.omb/themes/omb-$theme
 # Add "omb" Pseudo-Program
 omb() {
   if [[ "$1" == "" ]]; then
-    echo "Usage: omb [plugin|theme|update|reload] [enable|list] [name]"
+    echo "Usage: omb [plugin|theme|update|reload|bashrc] [[en|dis]able|list] [name]"
+    echo ""
+    echo "This is a program to manage Oh My Bash. This is not a real"
+    echo "program, but a simple bash function."
     echo ""
     echo "Commands:"
     echo "  plugin  Manage plugins"
     echo "  theme   Manage themes"
-    echo "  update  Update omb"
-    echo "  reload  Re-execute the shell"
+    echo "  update  Update Oh My Bash"
+    echo "  reload  Re-execute bash"
+    echo "  edit    Edit .bashrc"
     echo ""
     echo "Options:"
     echo "  plugin:"
@@ -62,6 +66,8 @@ omb() {
     fi
   elif [[ "$1" == "update" ]]; then
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
+  elif [[ "$1" == "edit" ]]; then
+      nano ~/.bashrc && exec bash
   elif [[ "$1" == "reload" ]]; then
       exec bash
   else
