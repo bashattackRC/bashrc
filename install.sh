@@ -45,14 +45,14 @@ echo
 
 # Info about plugins
 echo "The git plugin will be enabled by default."
-echo "The simpleansi theme will be used by default."
+echo "The entoli theme will be used by default."
 echo "More plugins can be enabled by editing .bashrc."
 echo '# Plugins. git is enabled by default.' >> ~/.bashrc
 echo '# Names are separated by whitespace, not commas.' >> ~/.bashrc
 echo 'export plugins=("git")' >> ~/.bashrc
 echo '' >> ~/.bashrc #Newline in bashrc
 
-echo 'export theme="simpleansi"' >> ~/.bashrc
+echo 'export theme="entoli"' >> ~/.bashrc
 echo
 
 # Install OMB
