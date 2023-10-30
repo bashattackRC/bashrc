@@ -1,19 +1,5 @@
-# Define colors
-red="\[\e[41m\]"
-yellow="\[\e[43m\]"
-white="\[\e[97m\]"
-reset="\[\e[0m\]"
-
-# Define prompt symbols
-distro="" # Linux logo from Nerd Fonts
-user="" # User icon from Nerd Fonts
-host="󰟀" # Desktop icon from Nerd Fonts
-dir="" # Folder icon from Nerd Fonts
-
-# Define prompt segments
-distro_segment="$red$white$distro "
-user_host_segment="$yellow$white$user@$host "
-dir_segment="$white$dir\w "
-
-# Define prompt string
-PS1="$distro_segment$user_host_segment$dir_segment $reset"
+if [ -z "$GIT_BRANCH" ]; then
+  export PS1="\e[0;37m\e[44m \u@\h \e[0;34m\e[43m\e[0;37m\e[43m \W \e[0;33m\e[0m "
+else
+  export PS1="\e[0;37m\e[44m \u@\h \e[0;34m\e[43m\e[0;37m\e[43m \W  $GIT_BRANCH \e[0;33m\e[0m "
+fi
