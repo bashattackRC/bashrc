@@ -1,0 +1,28 @@
+Oh My Bash is a collection of scripts that make Bash a better
+shell. This is essentially a subset of oh-my-zsh, as Bash isn`t
+as customizable as other shells such as zsh.
+
+Usage
+  Oh My Bash has a command line tool called `omb`. This tool will
+  ONLY WORK WITH BASH because it is not a real program, but a 
+  Bash function generated during startup.
+
+  Use the omb tool to:
+    * Enable and disable plugins
+    * Enable your favourite theme (may require additional fonts)
+    * Add extra commands to your bashrc
+
+  To see the full list of actions possible with omb, type
+  `omb` into your Bash command prompt.
+
+Integration
+  Bash not only can integrate with your system`s software, but with
+  Oh My Bash you can integrate with Flatpak, Git, and other software.
+
+  By default, OMB integrates with Git. OMB shows your working branch
+  in your Bash prompt, and also gives you some aliases to work with
+  Git. Goodbye git push, hello gp.
+
+License
+  Oh My Bash and any related files in ~/.omb are licensed under the
+  MIT License. Contribute on GitHub: https://github.com/ohmybashrc
