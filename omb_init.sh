@@ -21,12 +21,13 @@ source ~/.omb/themes/omb-$theme
 # Add "omb" Pseudo-Program
 omb() {
   if [[ "$1" == "" ]]; then
-    echo "Usage: omb [plugin|theme|update] [enable|list] [name]"
+    echo "Usage: omb [plugin|theme|update|reload] [enable|list] [name]"
     echo ""
     echo "Commands:"
     echo "  plugin  Manage plugins"
     echo "  theme   Manage themes"
     echo "  update  Update omb"
+    echo "  restart Restart the shell"
     echo ""
     echo "Options:"
     echo "  plugin:"
@@ -61,6 +62,8 @@ omb() {
     fi
   elif [[ "$1" == "update" ]]; then
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
+  elif [[ "$1" == "restart" ]]; then
+      exec bash
   else
       echo "Invalid command"
   fi
