@@ -4,6 +4,16 @@ export BASH_VERSION="$BASH_VERSION omb-0.9"
 # And to a separate variable
 export OMB_VERSION="0.9"
 
+# Check if the terminal is graphical by looking at the TERM and DISPLAY variables
+# Used to detect if the terminal would support nerd fonts and other powerline fonts
+if [[ "$TERM" == xterm* ]] || [[ "$TERM" == rxvt* ]] && [[ -n "$DISPLAY" ]]; then
+  # The terminal is graphical, so set XTERM_UNAVAILABLE to "no"
+  XTERM_UNAVAILABLE="no"
+else
+  # The terminal is not graphical, so set XTERM_UNAVAILABLE to "yes"
+  XTERM_UNAVAILABLE="yes"
+fi
+
 # Define dummy git trap in case git plugin is disabled.
 # git plugin can redefine the function
 _git-plugin-trap() {
