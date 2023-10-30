@@ -10,7 +10,7 @@ clear
 function exec_to_bash {
   exec bash
 }
-trap SIGINT exec_to_bash
+trap exec_to_bash SIGINT
 
 # Echo the project name
 echo -n '''
