@@ -39,12 +39,12 @@ source ~/.omb/themes/omb-$theme
 # Add "omb" Pseudo-Program
 omb() {
   if [[ "$1" == "" ]]; then
-    echo "Usage: omb [plugin|theme|update|reload|bashrc] [[en|dis]able|list] [name]"
+    echo "This function allows you to configure Oh My Bash,"
+    echo "enable plugins, choose themes, and more."
+    echo "--- Usage ---------------------------------------"
+    echo "  omb command [tool]"
     echo ""
-    echo "This is a program to manage Oh My Bash. This is not a real"
-    echo "program, but a simple bash function."
-    echo ""
-    echo "Commands:"
+    echo "--- Commands ------------------------------------"
     echo "  plugin    Manage plugins"
     echo "  theme     Manage themes"
     echo "  update    Update Oh My Bash"
@@ -52,16 +52,17 @@ omb() {
     echo "  edit      Edit .bashrc"
     echo "  version   Echo current version"
     echo ""
-    echo "Options:"
-    echo "  plugin:"
+    echo "--- Tools ---------------------------------------"
+    echo "  plugin"
     echo "    enable   Enable a plugin"
     echo "    disable  Disable a plugin"
     echo "    list     List all plugins"
     echo ""
-    echo "  theme:"
+    echo "  theme"
     echo "    enable   Enable a theme"
     echo "    list     List all themes"
     echo ""
+    echo "  update, reload, edit and version have no tools."
     return
   fi
 
