@@ -27,7 +27,7 @@ omb() {
     echo "  plugin  Manage plugins"
     echo "  theme   Manage themes"
     echo "  update  Update omb"
-    echo "  restart Restart the shell"
+    echo "  reload  Re-execute the shell"
     echo ""
     echo "Options:"
     echo "  plugin:"
@@ -62,7 +62,7 @@ omb() {
     fi
   elif [[ "$1" == "update" ]]; then
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
-  elif [[ "$1" == "restart" ]]; then
+  elif [[ "$1" == "reload" ]]; then
       exec bash
   else
       echo "Invalid command"
