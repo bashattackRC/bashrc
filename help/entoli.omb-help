@@ -1,0 +1,22 @@
+Entoli is the default Oh My Bash theme. Entoli is a Greek word for
+`command`. Entoli is designed to be appealing and basic.
+
+Requirements
+  To use Entoli you will need a Nerd Font installed. You can
+  search `Nerd Fonts` on your favourite search engine to find
+  downloads for Nerd Fonts.
+  
+  You will also need to run `omb theme enable entoli` in Bash
+  (the command only works in Bash).
+
+  If you can`t install a Nerd Font, or want to use Entoli in a TTY,
+  you can run `omb theme enable entoli-no-nerd` to use a version of
+  Entoli that does not require Nerd Fonts.
+
+Git
+  Entoli can show the current Git branch in the prompt. This is enabled
+  by default. You can disable it by running `omb edit` and removing `git`
+  from the `plugins` list.
+
+  Please note that this will also disable other Git features Oh My Bash
+  has to offer, such as aliases to simplify Git commands.
