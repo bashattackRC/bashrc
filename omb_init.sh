@@ -102,7 +102,7 @@ omb() {
  | |__| | | | | | |  | | |_| | | |_) | (_| \\__ \\ | | |
   \\____/|_| |_| |_|  |_|\\__, | |____/ \\__,_|___/_| |_|
                          __/ |                        
-                        |___/\e]8;;\a"
+                        |___/                            \e]8;;\a"
       echo "$OMB_VERSION on $BASH_REAL_VERSION"
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
