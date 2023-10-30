@@ -8,5 +8,5 @@ RESET="\[\033[0m\]"
 if [ -z "$GIT_BRANCH" ]; then
    PS1="${GREEN}\u@\h${RESET}:${BLUE}\w${RESET}\$ "
 else
-   PS1="${GREEN}\u@\h${RESET}:${BLUE}\w +$GIT_BRANCH${RESET}\$ "
+   PS1="[git_branch: $GIT_BRANCH] ${GREEN}\u@\h${RESET}:${BLUE}\w${RESET}\$ "
 fi
