@@ -58,7 +58,14 @@ omb() {
     fi
   elif [[ "$1" == "theme" ]]; then
     if [[ "$2" == "enable" ]]; then
-      echo "Enabling theme $3"
+      if [ ! -f ~/".omb/themes/omb-$3" ]; then
+        echo "$3 is not a valid theme"
+        return 1
+      fi
+      sed -i 's/export theme="'$theme'"/export theme="'$3'"/g' ~/.bashrc
+      export theme="$3"
+      refresh_theme
+      echo "Theme $3 has been enabled in your bashrc"
     elif [[ "$2" == "list" ]]; then
       echo "Listing themes"
     else
