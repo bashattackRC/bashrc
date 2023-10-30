@@ -14,8 +14,7 @@ echo -n '''
 ██║   ██║██╔══██║    ██║╚██╔╝██║  ╚██╔╝      ██╔══██╗██╔══██║╚════██║██╔══██║
 ╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║       ██████╔╝██║  ██║███████║██║  ██║
  ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-    Version '''; echo "$OMBVER"
-
+    Version '''; echo -m "$OMBVER"; echo -e '      \e]8;;http://github.com/ohmybashrc/ohmybash\aGitHub...\e]8;;\a'  
 # Print info about shell change
 echo "We are going to change your main shell to bash so OMB can function."
 echo "Enter your password if you are asked to do so."
