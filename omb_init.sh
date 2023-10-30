@@ -95,14 +95,14 @@ omb() {
   elif [[ "$1" == "edit" ]]; then
       nano ~/.bashrc && exec bash
   elif [[ "$1" == "version" ]]; then
-      echo -e "   ____  _       __  __         ____            _     
+      echo -e "\e]8;;https://github.com/ohmybashrc/ohmybash/\a   ____  _       __  __         ____            _     
   / __ \\| |     |  \\/  |       |  _ \\          | |    
  | |  | | |__   | \\  / |_   _  | |_) | __ _ ___| |__  
  | |  | | '_ \\  | |\\/| | | | | |  _ < / _\` / __| '_ \\ 
  | |__| | | | | | |  | | |_| | | |_) | (_| \\__ \\ | | |
   \\____/|_| |_| |_|  |_|\\__, | |____/ \\__,_|___/_| |_|
                          __/ |                        
-                        |___/"
+                        |___/\e]8;;\a"
       echo "$OMB_VERSION on $BASH_REAL_VERSION"
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
