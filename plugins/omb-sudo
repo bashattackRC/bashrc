@@ -1,7 +1,3 @@
-function sudo() {
-  if [ -z $1 ]; then
-     $(which sudo) !!
-  else
-     $(which sudo) $@
-  fi
+function retry_sudo {
+   sudo !!
 }
