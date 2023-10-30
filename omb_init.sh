@@ -10,6 +10,12 @@ function refresh_theme() {
    source ~/.omb/themes/omb-$theme
 }
 
+# Define Not Found Handler
+function command_mot_found_handle {
+   echo -e "\033[0;31m$1 is not recognized as a program, alias, or command.\n\
+   Perhaps you need to enable a plugin (omb plugin enable) or install software.\033[0m"
+}
+
 # Load Plugins
 for i in ${plugins[@]}; do
    source ~/.omb/plugins/omb-$i
