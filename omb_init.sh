@@ -1,5 +1,8 @@
 # Expose ohmybash version to BASH_VERSION
+export BASH_REAL_VERSION="$BASH_VERSION"
 export BASH_VERSION="$BASH_VERSION omb-0.9"
+# And to a separate variable
+export OMB_VERSION="0.9"
 
 # Define dummy git trap in case git plugin is disabled.
 # git plugin can redefine the function
@@ -36,11 +39,12 @@ omb() {
     echo "program, but a simple bash function."
     echo ""
     echo "Commands:"
-    echo "  plugin  Manage plugins"
-    echo "  theme   Manage themes"
-    echo "  update  Update Oh My Bash"
-    echo "  reload  Re-execute bash"
-    echo "  edit    Edit .bashrc"
+    echo "  plugin    Manage plugins"
+    echo "  theme     Manage themes"
+    echo "  update    Update Oh My Bash"
+    echo "  reload    Re-execute bash"
+    echo "  edit      Edit .bashrc"
+    echo "  version   Echo current version"
     echo ""
     echo "Options:"
     echo "  plugin:"
@@ -84,6 +88,10 @@ omb() {
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
   elif [[ "$1" == "edit" ]]; then
       nano ~/.bashrc && exec bash
+  elif [[ "$1" == "version" ]]; then
+      echo "$OMB_VERSION on $BASH_REAL_VERSION"
+      echo "Licensed under the MIT license"
+      echo "User: $(whoami) Path to bash: $BASH"
   elif [[ "$1" == "reload" ]]; then
       exec bash
   else
