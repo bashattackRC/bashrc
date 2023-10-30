@@ -1,6 +1,8 @@
+# Expose ohmybash version to BASH_VERSION
+export BASH_VERSION="$BASH_VERSION omb-0.9"
+
 # Define dummy git trap in case git plugin is disabled.
 # git plugin can redefine the function
-
  _git-plugin-trap() {
      echo -n
  }
