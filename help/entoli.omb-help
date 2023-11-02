@@ -5,12 +5,9 @@ Requirements
   To use Entoli you will need a Nerd Font installed. You can
   search `Nerd Fonts` on your favourite search engine to find
   downloads for Nerd Fonts.
-  
-  You will also need to run `omb theme enable entoli` in Bash
-  (the command only works in Bash).
 
   If you can`t install a Nerd Font, or want to use Entoli in a TTY,
-  you can run `omb theme enable entoli-no-nerd` to use a version of
+  you can run `omb theme entoli-no-nerd enable` to use a version of
   Entoli that does not require Nerd Fonts.
 
 Git
