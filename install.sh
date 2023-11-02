@@ -44,9 +44,7 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   echo "  PLEASE PRESS CTRL+C IF YOU DON'T UNDERSTAND WHAT ROOT IS"
   echo "  AND/OR HOW TO UNINSTALL OH MY BASH IN CASE A MALICIOUS SCRIPT"
   echo "  RUNS."
-  trap "exec bash" INT
   read -s -n 1
-  trap - INT
   echo
 fi
 
