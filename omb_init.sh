@@ -113,6 +113,14 @@ enable plugins, choose themes, and more.
       echo "Invalid option for theme command"
     fi
   elif [[ "$1" == "update" ]]; then
+      if [ "$EUID" = 0 ]; then
+        echo "Oh My Bash doesn't support installs on root. This means"
+        echo "you cannot update it. Please consider uninstalling Oh My"
+        echo "Bash, then install it again as a normal user."
+        echo
+        echo "Update canceled."
+        return
+      fi
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
   elif [[ "$1" == "edit" ]]; then
       nano ~/.bashrc && exec bash
@@ -129,6 +137,12 @@ enable plugins, choose themes, and more.
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
       echo "Path to bash: $BASH"
+      if [ "$EUID" = 0 ]; then
+        echo
+        echo "Oh My Bash doesn't support installs on root. This means"
+        echo "you cannot update it. Please consider uninstalling Oh My"
+        echo "Bash, then install it again as a normal user."
+      fi
   elif [[ "$1" == "reload" ]]; then
       exec bash
   elif [[ "$1" == "help" ]]; then
