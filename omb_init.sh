@@ -8,13 +8,6 @@ export BASH_VERSION="$BASH_VERSION omb-0.9"
 # And to a separate variable
 export OMB_VERSION="0.9"
 
-# Warn about root
-if [ "$EUID" = 0 ]; then
-  echo "Oh My Bash doesn't support installs on root. This means"
-  echo "you cannot update it. Please consider uninstalling Oh My"
-  echo "Bash, then install it again as a normal user."
-fi
-
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
 if [[ "$TERM" == xterm* ]] || [[ "$TERM" == rxvt* ]] && [[ -n "$DISPLAY" ]]; then
