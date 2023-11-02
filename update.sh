@@ -4,6 +4,7 @@ export OMBVER="0.9"
 set +x # exit on errors
 
 # Clear the console to clean everything
+printf '\e[?1049h'
 clear
 
 # Echo the project name
@@ -40,4 +41,7 @@ cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
 rm -rf ~/.omb-git
 echo "Updated!"
+echo "Now press any key to run bash..."
+read -s -n 1
+printf '\e[?1049l'
 exec bash
