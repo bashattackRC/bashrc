@@ -99,7 +99,7 @@ enable plugins, choose themes, and more.
       
       # loop through the array and print each element with padding
       for ((i=0; i<${#plugins[@]}; i++)); do
-        printf "%-10s" "${plugins[i]}"
+        printf "%-10s" "${plugins[i]^}"
         # add a newline after every cols elements
         if (( (i+1) % cols == 0 )); then
           echo
