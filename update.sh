@@ -24,7 +24,8 @@ if [ "$EUID" = 0 ]; then
   echo "you cannot update it. Please consider uninstalling Oh My"
   echo "Bash, then install it again as a normal user."
   echo
-  echo "Install aborted."
+  echo "Update aborted."
+  exec bash
 fi
 
 # Update OMB
