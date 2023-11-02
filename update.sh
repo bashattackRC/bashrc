@@ -19,6 +19,13 @@ if [ ! -d ~/".omb" ]; then
   echo "Oh My Bash is not installed."
   exit 1
 fi
+if [ "$EUID" = 0 ]; then
+  echo "Oh My Bash doesn't support installs on root. This means"
+  echo "you cannot update it. Please consider uninstalling Oh My"
+  echo "Bash, then install it again as a normal user."
+  echo
+  echo "Install aborted."
+fi
 
 # Update OMB
 echo "Updating..."
