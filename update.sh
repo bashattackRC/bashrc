@@ -25,6 +25,7 @@ if [ "$EUID" = 0 ]; then
   echo "Bash, then install it again as a normal user."
   echo
   echo "Update aborted."
+  echo
   exec bash
 fi
 
