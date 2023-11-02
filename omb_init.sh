@@ -56,7 +56,7 @@ omb() {
     echo 'This function allows you to configure Oh My Bash,
 enable plugins, choose themes, and more.
 --- Usage ---------------------------------------
-  omb command [tool]
+  omb command [element tool]
 
 --- Commands ------------------------------------
   Utilities
@@ -75,11 +75,9 @@ enable plugins, choose themes, and more.
   plugin
     enable   Enable a plugin
     disable  Disable a plugin
-    list     List all plugins
 
   theme
     enable   Enable a theme
-    list     List all themes
 
   help accepts the name of a help document.
 
@@ -88,29 +86,45 @@ enable plugins, choose themes, and more.
   fi
 
   if [[ "$1" == "plugin" ]]; then
-    if [[ "$2" == "enable" ]]; then
-      echo "Enabling plugin $3"
-    elif [[ "$2" == "disable" ]]; then
-      echo "Disabling plugin $3"
-    elif [[ "$2" == "list" ]]; then
-      echo "Listing plugins"
+    if [[ "$3" == "enable" ]]; then
+      echo "Enabling plugin $2"
+    elif [[ "$3" == "disable" ]]; then
+      echo "Disabling plugin $2"
     else
-      echo "Invalid option for plugin command"
+      echo "${#plugins[@]} plugins enabled. Here is a list of them."
+      echo "You can always enable plugins using omb plugin [name] enable"
+      echo "and disable using omb plugin [name] disable."
+      # define the number of columns for the grid
+      cols=8
+      
+      # loop through the array and print each element with padding
+      for ((i=0; i<${#plugins[@]}; i++)); do
+        printf "%-10s" "${plugins[i]}"
+        # add a newline after every cols elements
+        if (( (i+1) % cols == 0 )); then
+          echo
+        fi
+      done
+      
+      # add a final newline if the last row is not complete
+      if (( ${#plugins[@]} % cols != 0 )); then
+        echo
+      fi
     fi
   elif [[ "$1" == "theme" ]]; then
-    if [[ "$2" == "enable" ]]; then
-      if [ ! -f ~/".omb/themes/omb-$3" ]; then
-        echo "$3 is not a valid theme"
+    if [[ "$3" == "enable" ]]; then
+      if [ ! -f ~/".omb/themes/omb-$2" ]; then
+        echo "$2 is not a valid theme"
         return 1
       fi
-      sed -i 's/export theme="'$theme'"/export theme="'$3'"/g' ~/.bashrc
-      export theme="$3"
+      sed -i 's/export theme="'$theme'"/export theme="'$2'"/g' ~/.bashrc
+      export theme="$2"
       refresh_theme
-      echo "Theme $3 has been enabled in your bashrc"
-    elif [[ "$2" == "list" ]]; then
-      echo "Listing themes"
+      echo "Theme $2 has been enabled in your bashrc"
     else
-      echo "Invalid option for theme command"
+      echo "Current theme: $theme"
+      echo "To change this use:"
+      echo "  omb theme [new_theme] enable"
     fi
   elif [[ "$1" == "update" ]]; then
       if [ "$EUID" = 0 ]; then
