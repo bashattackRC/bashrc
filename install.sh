@@ -22,12 +22,6 @@ fi
 # Clear the console to clean everything
 clear
 
-# Go back to bash on Ctrl+C
-function exec_to_bash {
-  exec bash
-}
-trap exec_to_bash SIGINT
-
 # Echo the project name
 echo -n '''
  ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗    ██████╗  █████╗ ███████╗██╗  ██╗
@@ -50,7 +44,7 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   echo "  PLEASE PRESS CTRL+C IF YOU DON'T UNDERSTAND WHAT ROOT IS"
   echo "  AND/OR HOW TO UNINSTALL OH MY BASH IN CASE A MALICIOUS SCRIPT"
   echo "  RUNS."
-  read -s -n 1
+  read -s -n 1 || exec bash
   echo
 fi
 
@@ -100,4 +94,4 @@ echo >> ~/.bashrc
 echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
 echo "Installed!"
-exec_to_bash
+exec bash
