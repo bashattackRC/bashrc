@@ -2,6 +2,22 @@
 # SPDX-License-Identifier: MIT
 export OMBVER="0.9"
 set +x # exit on errors
+if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" != 1 ]; then
+  clear
+  echo
+  echo "  Don't install Oh My Bash as root! Using root account"
+  echo "  can expose malicious 3rd-party plugins to your full"
+  echo "  file system."
+  echo
+  echo "  If you are REALLY SURE you want to do this, prepend"
+  echo "  this to the beginning of the install command:"
+  echo "    ALLOW_SUDO_INSTALL=1"
+  echo
+  echo "  Please note you will not get any updates. Good luck"
+  echo "  getting hacked"
+  echo
+  exec bash
+fi
 
 # Clear the console to clean everything
 clear
@@ -21,6 +37,23 @@ echo -n '''
 ╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║       ██████╔╝██║  ██║███████║██║  ██║
  ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
     Version '''; echo -n "$OMBVER"; echo -e '                      \e]8;;http://github.com/ohmybashrc/ohmybash\aGitHub...\e]8;;\a'  
+
+# Print info about forcing root
+if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
+  echo
+  echo "  Don't install Oh My Bash as root! Using root account"
+  echo "  can expose malicious 3rd-party plugins to your full"
+  echo "  file system. You have chosen to install OMB anyways."
+  echo
+  echo "  You will not get any updates. Good luck getting hacked."
+  echo
+  echo "  PLEASE PRESS CTRL+C IF YOU DON'T UNDERSTAND WHAT ROOT IS"
+  echo "  AND/OR HOW TO UNINSTALL OH MY BASH IN CASE A MALICIOUS SCRIPT"
+  echo "  RUNS."
+  read -s -n 1
+  echo
+fi
+
 # Print info about shell change
 echo "We are going to change your main shell to bash so OMB can function."
 echo "Enter your password if you are asked to do so."
