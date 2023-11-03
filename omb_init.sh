@@ -39,6 +39,7 @@ function refresh_theme() {
 function command_not_found_handle {
    echo -e "\033[0;31m$1 is not recognized as a program, alias, or command.\n\
 Perhaps you need to enable a plugin (omb plugin enable) or install software.\033[0m"
+   return 127
 }
 
 # Color ls and grep
@@ -173,7 +174,6 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "web" ]]; then
       xdg-open "https://ohmybashrc.github.io"
   elif [[ "$1" == "doctor" ]]; then
-      echo "Downloading doctor script for Oh My Bash..."
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh)"
   else
       echo "Invalid command"
