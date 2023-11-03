@@ -172,6 +172,9 @@ enable plugins, choose themes, and more.
       less ~/.omb/help/$2.omb-help
   elif [[ "$1" == "web" ]]; then
       xdg-open "https://ohmybashrc.github.io"
+  elif [[ "$1" == "doctor" ]]; then
+      echo "Downloading doctor script for Oh My Bash..."
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh)"
   else
       echo "Invalid command"
   fi
