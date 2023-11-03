@@ -50,7 +50,7 @@ done
 # Load Theme
 source ~/.omb/themes/omb-$theme
 
-# Add "omb" Pseudo-Program
+# Create omb function
 omb() {
   if [[ "$1" == "" ]]; then
     echo 'This function allows you to configure Oh My Bash,
@@ -94,8 +94,9 @@ enable plugins, choose themes, and more.
       echo "${#plugins[@]} plugins enabled. Here is a list of them."
       echo "You can always enable plugins using omb plugin [name] enable"
       echo "and disable using omb plugin [name] disable."
+      echo
       # define the number of columns for the grid
-      cols=8
+      cols=6
       
       # loop through the array and print each element with padding
       for ((i=0; i<${#plugins[@]}; i++)); do
@@ -114,7 +115,7 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "theme" ]]; then
     if [[ "$3" == "enable" ]]; then
       if [ ! -f ~/".omb/themes/omb-$2" ]; then
-        echo "$2 is not a valid theme"
+        echo "Theme `$2` does not exist"
         return 1
       fi
       sed -i 's/export theme="'$theme'"/export theme="'$2'"/g' ~/.bashrc
