@@ -8,9 +8,11 @@ export BASH_VERSION="$BASH_VERSION omb-0.9"
 # And to a separate variable
 export OMB_VERSION="0.9"
 
-no_xterm_check(){[[ "$TERM" == xterm* ]] || [[ "$TERM" == rxvt* ]]}
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
+no_xterm_check() {
+  test "$TERM" == xterm* || test "$TERM" == rxvt*
+}
 if no_xterm_check && [[ -n "$DISPLAY" ]]; then
   # The terminal is graphical, so set XTERM_UNAVAILABLE to "no"
   XTERM_UNAVAILABLE="no"
