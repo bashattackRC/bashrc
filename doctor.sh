@@ -29,7 +29,7 @@ fi
 info "Oh My Bash version" "$OMB_VERSION"
 info "Bash version" "$BASH_REAL_VERSION"
 if (git version > /dev/null); then
-  nice "Git" "$(git version)"
+  nice "Git" "$(git version) ($(type git))"
 else
   error "Git" "Git is missing"
 fi
