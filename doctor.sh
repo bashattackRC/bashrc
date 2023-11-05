@@ -23,12 +23,12 @@ distro_find() {
   	nice "Distro" "Termux"
   	return
   fi
-  if [[ -f "/etc/debian_release" ]]; then
-        nice "Distro" "Debian or Ubuntu?"
+  if [[ -f "/etc/debian_version" ]]; then
+        nice "Distro" "Debian family (Debian, Ubuntu, Kali, etc)"
         return
   fi
   if command -v pacman; then
-  	nice "Distro" "Arch or Manjaro?"
+  	nice "Distro" "Arch family (Arch, Manjaro, EndeavourOS, etc)"
   	return
   fi
   error "Distro" "Couldn't find any ways to identify distro"
