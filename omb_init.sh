@@ -178,8 +178,8 @@ enable plugins, choose themes, and more.
          echo "This will download a script from the OMB repos."
          echo "The script may not support older versions of OMB."
          echo "Updates will delete this script as it is stored internally."
-         echo "Continue? (Y/n) "
-         read -en 1 y
+         echo -n"Continue? (Y/n) "
+         read -n 1 y
          if [[ $y == "y" ]] || [[ $y == "" ]]; then
            curl -fSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh -o ~/.omb/doctor.sh
          else
