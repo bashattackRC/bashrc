@@ -20,7 +20,7 @@ category() {
 
 distro_find() {
   if [[ $OSTYPE == "linux-android" ]]; then
-  	nice "Distro" "Termux"
+  	nice "Distro" "Android (Bash running under Termux)"
   	return
   fi
   if [[ -f "/etc/debian_version" ]]; then
