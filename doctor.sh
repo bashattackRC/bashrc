@@ -14,6 +14,10 @@ info() {
   echo -e "[i] $1: $2"
 }
 
+category() {
+  echo "> $1"
+}
+
 distro_find() {
   if [[ $OSTYPE == "linux-android" ]]; then
   	nice "Distro" "Termux"
@@ -55,4 +59,19 @@ else
   warning "Distro" "LSB-Release not found. Falling back to alt method"
   warning "Distro" "The results may be less accurate compared to lsb"
   distro_find
+fi
+
+info "Theme" "${theme^}"
+info "Plugins" "${plugins[@]#} plugins, type omb plugin for a list"
+category "Software"
+if (python3 -c "print('test')" > /dev/null); then
+  nice "Python 3" "Test script executed successfully"
+else
+  warning "Python 3" "Test script failed. Some plugins require Python"
+fi
+
+if [[ $XTERM_UNAVAILABLE == "no" ]]; then
+  nice "Graphical Terminal" "$TERM"
+else
+  warning "Graphical Terminal" "$TERM - fbterm is required to use powerline symbols"
 fi
