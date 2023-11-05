@@ -14,6 +14,22 @@ info() {
   echo -e "[i] $1: $2"
 }
 
+distro_find() {
+  if [[ $OSTYPE == "linux-android" ]]; then
+  	nice "Distro" "Termux"
+  	return
+  fi
+  if [[ -f "/etc/debian_release" ]]; then
+        nice "Distro" "Debian or Ubuntu?"
+        return
+  fi
+  if command -v pacman; then
+  	nice "Distro" "Arch or Manjaro?"
+  	return
+  fi
+  error "Distro" "Couldn't find any ways to identify distro"
+}
+
 if ! [ -d ~/".omb" ]; then
   error "Missing OMB" "Oh My Bash is not installed."
   exit 1
@@ -36,5 +52,7 @@ fi
 if (lsb_release -a > /dev/null); then
   nice "Distro" "$(lsb_release -ds)"
 else
-  warning "Distro" "lsb_release is missing"
+  warning "Distro" "LSB-Release not found. Falling back to alt method"
+  warning "Distro" "The results may be less accurate compared to lsb"
+  distro_find
 fi
