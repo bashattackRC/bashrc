@@ -69,9 +69,3 @@ if (python3 -c "print('test')" > /dev/null); then
 else
   warning "Python 3" "Test script failed. Some plugins require Python"
 fi
-
-if [[ $TERM == "xterm*" ]] || [[ $TERM == "rxvt*" ]]; then
-  nice "Graphical Terminal" "$TERM"
-else
-  warning "Graphical Terminal" "$TERM - fbterm is required to use powerline symbols"
-fi
