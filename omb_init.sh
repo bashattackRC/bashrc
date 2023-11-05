@@ -174,7 +174,19 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "web" ]]; then
       xdg-open "https://ohmybashrc.github.io"
   elif [[ "$1" == "doctor" ]]; then
-      bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh)"
+      if [ ! -f ~/"doctor.sh" ]; then
+         echo "This will download a script from the OMB repos."
+         echo "The script may not support older versions of OMB."
+         echo "Updates will delete this script as it is stored internally."
+         echo -n "Continue? (Y/n) "
+         read y -n 1
+         if [[ $y == "y" ]] || [[ $y == "" ]]; then
+           curl -fSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh -o ~/.omb/doctor.sh
+         else
+           return
+         fi
+       fi
+       bash ~/.omb/doctor.sh
   else
       echo "Invalid command"
   fi
