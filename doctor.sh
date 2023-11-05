@@ -65,7 +65,7 @@ info "Theme" "${theme^}"
 category "Plugins"
 for i in $plugins; do
   echo "* $i"
-fi
+done
 category "Software"
 if (python3 -c "print('test')" > /dev/null); then
   nice "Python 3" "Test script executed successfully"
