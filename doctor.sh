@@ -62,7 +62,7 @@ else
 fi
 
 info "Theme" "${theme^}"
-info "Plugins" "${#plugins[@]} plugins, type omb plugin for a list"
+info "Plugins" "${#plugins[@]} loaded, type omb plugin for a list"
 category "Software"
 if (python3 -c "print('test')" > /dev/null); then
   nice "Python 3" "Test script executed successfully"
