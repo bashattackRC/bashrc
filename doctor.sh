@@ -70,7 +70,7 @@ else
   warning "Python 3" "Test script failed. Some plugins require Python"
 fi
 
-if [[ $XTERM_UNAVAILABLE == "no" ]]; then
+if [[ $TERM == "xterm*" ]] || [[ $TERM == "rxvt*" ]]; then
   nice "Graphical Terminal" "$TERM"
 else
   warning "Graphical Terminal" "$TERM - fbterm is required to use powerline symbols"
