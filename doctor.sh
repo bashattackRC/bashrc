@@ -39,8 +39,8 @@ if ! [ -d ~/".omb" ]; then
   exit 1
 fi
 
-echo "Sourcing omb_init... (You can trust this script)"
-source ~/.omb/omb_init.sh
+echo "Sourcing bashrc... (You can trust this script)"
+source ~/.bashrc
 
 if [[ $EUID == 0 ]]; then
   warning "Root" "Root installs are unsupported"
