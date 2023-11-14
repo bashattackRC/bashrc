@@ -30,7 +30,7 @@ if no_xterm_check && [[ -z "$DISPLAY" ]]; then
 else
   # The terminal is not graphical, so set XTERM_UNAVAILABLE to "yes"
   XTERM_UNAVAILABLE="yes"
-  PROMPT_COMMANDS+=('echo -ne "\033]0;$XTERM_TITLE_BEGINNING${USER}@${HOSTNAME}: ${PWD}\007"')
+  PROMPT_COMMANDS+=('echo -ne "\033]0;${XTERM_TITLE_BEGINNING}${USER}@${HOSTNAME}: ${PWD}\007"')
 fi
 
 # Define dummy git trap in case git plugin is disabled.
