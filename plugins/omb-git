@@ -2,12 +2,16 @@
 _git-plugin-trap() {
   echo -n
   export GIT_BRANCH="$(git branch --show-current 2>/dev/null || echo)"
-  export XTERM_TITLE_BEGINNING="($GIT_BRANCH) "
+  if [[ -z "$GIT_BRANCH" ]]; then
+    export XTERM_TITLE_BEGGINING=""
+  else
+    export XTERM_TITLE_BEGINNING="($GIT_BRANCH) "
+  fi
   refresh_theme
 }
 
 # Run the function when prompt displayed
-export PROMPT_COMMAND="_git-plugin-trap"
+PROMPT_COMMANDS+=("_git-plugin-trap")
 
 # Aliases
 alias gp="git push"
