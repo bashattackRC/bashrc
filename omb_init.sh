@@ -17,7 +17,7 @@ function __OMB-INIT-PROMPTCOMMAND__ {
 
 PROMPT_COMMANDS=()
 
-PROMPT_COMMAND='__OMB-INIT-PROMPTCOMMAND__; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}${USER}@${HOSTNAME}: ${PWD}\007"'
+PROMPT_COMMAND='echo -ne "\033]0;${XTERM_TITLE_BEGINNING}${USER}@${HOSTNAME}: ${PWD}\007"; __OMB-INIT-PROMPTCOMMAND__'
 
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
