@@ -8,17 +8,29 @@ export BASH_VERSION="$BASH_VERSION omb-0.9"
 # And to a separate variable
 export OMB_VERSION="0.9"
 
+# Run commands that affect the prompt
+function __OMB-INIT-PROMPTCOMMAND__ {
+  for i in $PROMPT_COMMANDS; do
+    command $i
+  fi
+}
+
+PROMPT_COMMANDS=()
+
+PROMPT_COMMAND="__OMB-INIT-PROMPTCOMMAND__"
+
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
 no_xterm_check() {
   test "$TERM" != xterm* || test "$TERM" != rxvt*
 }
-if no_xterm_check && [[ -n "$DISPLAY" ]]; then
+if no_xterm_check && [[ -z "$DISPLAY" ]]; then
   # The terminal is graphical, so set XTERM_UNAVAILABLE to "no"
   XTERM_UNAVAILABLE="no"
 else
   # The terminal is not graphical, so set XTERM_UNAVAILABLE to "yes"
   XTERM_UNAVAILABLE="yes"
+  PROMPT_COMMANDS+=('echo -ne "\033]0;$XTERM_TITLE_BEGINNING${USER}@${HOSTNAME}: ${PWD}\007"')
 fi
 
 # Define dummy git trap in case git plugin is disabled.
