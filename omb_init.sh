@@ -48,8 +48,7 @@ function refresh_theme() {
 
 # Define Not Found Handler
 function command_not_found_handle {
-   echo -e "\033[0;31m$1 is not recognized as a program, alias, or command.\n\
-Perhaps you need to enable a plugin (omb plugin enable) or install software.\033[0m"
+   echo -e "\033[0;31m$1: command not found\033[0m"
    return 127
 }
 
