@@ -3,7 +3,7 @@ _git-plugin-trap() {
   echo -n
   export GIT_BRANCH="$(git branch --show-current 2>/dev/null || echo)"
   if [[ -z "$GIT_BRANCH" ]]; then
-    export XTERM_TITLE_BEGGINING=""
+    export XTERM_TITLE_BEGINNING=""
   else
     export XTERM_TITLE_BEGINNING="($GIT_BRANCH) "
   fi
