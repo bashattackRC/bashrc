@@ -11,7 +11,7 @@ export OMB_VERSION="0.9"
 # Run commands that affect the prompt
 function __OMB-INIT-PROMPTCOMMAND__ {
   for i in $PROMPT_COMMANDS; do
-    command $i
+    $i
   done
 }
 
