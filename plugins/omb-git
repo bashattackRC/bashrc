@@ -15,7 +15,7 @@ PROMPT_COMMANDS+=("_git-plugin-trap")
 
 # Aliases
 alias gp="git push"
-alias gcf="git config --list"
+alias gcf="git config -e"
 alias gl="git pull"
 alias gc="git commit"
 alias ga="git add"
