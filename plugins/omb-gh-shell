@@ -12,6 +12,9 @@ save_command() {
 
     # Run gh shell save in the background and hide any output
     (gh shell save < /tmp/gh_shell_history > /dev/null 2>&1 &)
+
+    # Write!
+    history -w
   fi
 }
 
