@@ -9,7 +9,7 @@ export BASH_VERSION="$BASH_VERSION omb-0.9"
 export OMB_VERSION="0.9"
 
 # Run commands that affect the prompt
-function __OMB-INIT-PROMPTCOMMAND__ {
+function __promptcommand {
   for i in $PROMPT_COMMANDS; do
     $i
   done
@@ -17,7 +17,7 @@ function __OMB-INIT-PROMPTCOMMAND__ {
 
 PROMPT_COMMANDS=()
 
-PROMPT_COMMAND='__OMB-INIT-PROMPTCOMMAND__; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}$(basename ${PWD})\007"'
+PROMPT_COMMAND='__promptcommand; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}$(basename ${PWD})\007"'
 
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
