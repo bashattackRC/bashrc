@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# This function saves the last command to a gist using gh shell
+save_command() {
+  # Get the last command from the BASH_COMMAND variable
+  local last_command=$BASH_COMMAND
+
+  # Check if the last command is not this function itself
+  if [[ $last_command != save_command* ]]; then
+    # Append the last command to a temporary file
+    echo $last_command >> /tmp/gh_shell_history
+
+    # Run gh shell save in the background and hide any output
+    (gh shell save < /tmp/gh_shell_history > /dev/null 2>&1 &)
+  fi
+}
+
+# Set the DEBUG trap to run the save_command function before every command
+trap save_command DEBUG
+
+# Clear the local bash history and restore the gist history in the background
+rm -f ~/.bash_history &> /dev/null
+(gh shell restore > /dev/null &)
