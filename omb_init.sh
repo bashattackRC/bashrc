@@ -21,12 +21,12 @@ PROMPT_COMMAND='_promptcommand; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}$(basen
 
 # Find the right editor to use
 function edit-file {
+  editor $@ || \
   micro  $@ || \
   emacs  $@ || \
   vim    $@ || \
   nano   $@ || \
   vi     $@ || \
-  editor $@ || \
   echo "No editor found. Please install one."
 }
 
