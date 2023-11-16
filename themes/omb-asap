@@ -6,7 +6,7 @@ RESET="\[\033[0m\]"
 
 # Define prompt
 if [ -z "$GIT_BRANCH" ]; then
-   PS1="${BLUE}\W ${GREEN}${RESET} "
+   PS1="${BLUE}\W ${GREEN}${RESET} "
 else
-   PS1="${BLUE}\W  $GIT_BRANCH ${GREEN}${RESET} "
+   PS1="${BLUE}\W  $GIT_BRANCH ${GREEN}${RESET} "
 fi
