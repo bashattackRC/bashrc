@@ -19,6 +19,17 @@ PROMPT_COMMANDS=()
 
 PROMPT_COMMAND='_promptcommand; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}$(basename ${PWD})\007"'
 
+# Find the right editor to use
+function edit-file {
+  micro  $@ || \
+  emacs  $@ || \
+  vim    $@ || \
+  nano   $@ || \
+  vi     $@ || \
+  editor $@ || \
+  echo "No editor found. Please install one."
+}
+
 # Check if the terminal is graphical by looking at the TERM and DISPLAY variables
 # Used to detect if the terminal would support nerd fonts and other powerline fonts
 no_xterm_check() {
@@ -152,7 +163,7 @@ enable plugins, choose themes, and more.
       fi
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
   elif [[ "$1" == "edit" ]]; then
-      nano ~/.bashrc && exec bash
+      edit-file ~/.bashrc && exec bash
   elif [[ "$1" == "version" ]]; then
       echo -e "\e]8;;https://github.com/ohmybashrc/ohmybash/\a   ____  _       __  __         ____            _     
   / __ \\| |     |  \\/  |       |  _ \\          | |    
