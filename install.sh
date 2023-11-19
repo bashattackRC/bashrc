@@ -111,7 +111,7 @@ function switchtobash {
   read -s # waits until enter pressed
   
   # Do it now
-  sudo chsh $USER --shell /bin/bash
+  sudo chsh $USER --shell $ombBASH
   echo "Your default shell is now bash!"
   echo
 }
@@ -177,7 +177,7 @@ git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
 echo "Preparing scripts..."
 cd ~/.omb-git
 export ombBASH
-echo "export ombBASH='$ombBASH'"
+echo "export ombBASH='$ombBASH'" >> ~/.bashrc
 bash configure.sh
 cd ~
 echo "Copying..."
