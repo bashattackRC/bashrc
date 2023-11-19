@@ -151,8 +151,13 @@ echo 'export theme="entoli"' >> ~/.bashrc
 echo
 
 # Install OMB
-echo "Installing..."
+echo "Cloning..."
 git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
+echo "Preparing scripts..."
+cd ~/.omb-git
+bash configure.sh
+cd ~
+echo "Copying..."
 mkdir ~/.omb
 cp -r ~/.omb-git/help ~/.omb/help
 cp -r ~/.omb-git/themes ~/.omb/themes
