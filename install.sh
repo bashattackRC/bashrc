@@ -118,31 +118,35 @@ function switchtobash {
 
 echo "Bash seems to be located at $BASH, but if this is incorrect"
 echo "you can specify a different path here. Else, press enter."
+echo "If you are unsure, please press enter without touching anything"
+echo "else you might end up breaking your setup."
 echo
 printf "Path to bash: "
 read -e -i "$BASH" OMB_BASH_PATH
-if [ "$SHELL" == "$OMB_BASH_PATH" ]; then
-echo "Your default shell is the same as above. :)"
-else
 echo
-echo "To use Oh My Bash you need to use a Bash shell, but"
-echo "your default shell is set to $(basename $SHELL)".
-echo
-echo "This probably means you are either installing Oh My Bash"
-echo "on an arbritary system that does not recommend bash,"
-echo "or used another shell package to use other customizations"
-echo "such as Oh My Zsh."
-echo
-echo "There are many ways of switching such as replacing the"
-echo "shell in .profile."
-echo
-echo "The recommended way is using chsh. You can do this now."
-echo
-options=("Change my shell now" "Keep previous shell")
-case `select_opt "${options[@]}"` in
-    0) switchtobash;;
-    *) true;;
-esac
+# Check if the current shell is bash
+if [ "$SHELL" != "$OMB_BASH_PATH" ]; then
+    echo
+    echo "To use Oh My Bash you need to use a Bash shell, but"
+    echo "your default shell is set to $(basename $SHELL)."
+    echo
+    echo "This probably means you are either installing Oh My Bash"
+    echo "on an arbritary system that does not recommend bash,"
+    echo "or used another shell package to use other customizations"
+    echo "such as Oh My Zsh."
+    echo
+    echo "There are many ways of switching such as replacing the"
+    echo "shell in .profile."
+    echo
+    echo "The recommended way is using chsh. You can do this now."
+    echo
+    options=("Change my shell now" "Keep previous shell")
+    case `select_opt "${options[@]}"` in
+        0) switchtobash;;
+        *) true;;
+    esac
+fi
+
 
 # Info about bashrc
 if [ -f ~/".bashrc" ]; then
