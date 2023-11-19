@@ -177,6 +177,7 @@ git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
 echo "Preparing scripts..."
 cd ~/.omb-git
 export ombBASH
+echo "export ombBASH='$ombBASH'"
 bash configure.sh
 cd ~
 echo "Copying..."
