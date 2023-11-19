@@ -185,10 +185,10 @@ enable plugins, choose themes, and more.
   \\____/|_| |_| |_|  |_|\\__, | |____/ \\__,_|___/_| |_|
                          __/ |                        
                         |___/                         \e]8;;\a"
-      echo "$OMB_VERSION on $BASH_REAL_VERSION"
+      echo "@@VERSION@@ on $BASH_REAL_VERSION"
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
-      echo "Path to bash: $BASH"
+      echo "Path to bash: @@BASHPATH@@"
       if [ "$EUID" = 0 ]; then
         echo
         echo "Oh My Bash doesn't support installs on root. This means"
@@ -201,6 +201,7 @@ enable plugins, choose themes, and more.
       if [ -z "$2" ]; then
         echo "Please specify a document (e.g. omb help omb):"
         ls ~/.omb/help --color=none
+        echo "Do not enter .omb-help suffixes."
         return
       fi
       less ~/.omb/help/$2.omb-help
