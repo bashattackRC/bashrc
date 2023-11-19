@@ -122,10 +122,10 @@ echo "If you are unsure, please press enter without touching anything"
 echo "else you might end up breaking your setup."
 echo
 echo "Path to bash:"
-read -e -i "$BASH" OMB_BASH_PATH
+read -e -i "$BASH" ombBASH
 echo
 # Check if the current shell is bash
-if [ "$SHELL" != "$OMB_BASH_PATH" ]; then
+if [ "$SHELL" != "$ombBASH" ]; then
     echo
     echo "To use Oh My Bash you need to use a Bash shell, but"
     echo "your default shell is set to $(basename $SHELL)."
