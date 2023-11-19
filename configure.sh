@@ -1,5 +1,5 @@
 omb_version=0.5
-BASH_SEDIFIED=${BASH//\//\\/}
+BASH_SEDIFIED=${OMB_BASH_PATH//\//\\/}
 printf "\rAdding info to scripts... "
 while read -r file; do
   sed -i "s/@@VERSION@@/$omb_version/g" "$file"
