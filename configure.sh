@@ -2,8 +2,7 @@
 # installer and other things intended to provide Oh My Bash.
 #
 # This script
-bashone=$OMB_BASH_PATH
-BASH_SEDIFIED=${bashone//\//\\/}
+BASH_SEDIFIED=${ombBASH//\//\\/}
 unset bashone
 printf "\rAdding info to scripts... "
 # Find all files in the folders "themes" and "plugins" whose name starts with "omb-"
