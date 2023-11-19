@@ -4,9 +4,9 @@
 
 # Expose ohmybash version to BASH_VERSION
 export BASH_REAL_VERSION="$BASH_VERSION"
-export BASH_VERSION="$BASH_VERSION omb-0.9"
+export BASH_VERSION="$BASH_VERSION omb-@@VERSION@@"
 # And to a separate variable
-export OMB_VERSION="0.9"
+export OMB_VERSION="@@VERSION@@"
 
 # Run commands that affect the prompt
 function _promptcommand {
@@ -85,16 +85,28 @@ enable plugins, choose themes, and more.
 
 --- Commands ------------------------------------
   Utilities
-    plugin    Manage plugins
-    theme     Manage themes
-    update    Update Oh My Bash
-    reload    Re-execute bash
-    edit      Edit .bashrc
+    plugin    Enable and disable plugins.
+    
+    theme     Change themes and get the current one.
+    
+    update    Update Oh My Bash to the newest version.
+    
+    reload    Replace the current bash session with another.
+    
+    edit      Edit the bashrc file.
+    
+
+  Troubleshooting
+    doctor    Trouble-shoot issues with omb.
+    
+    issueinf  Generate information that must be provided in bug reports.
 
   About
-    help      Read help pages
-    web       Visit Oh My Bash on the web
-    version   Echo current version
+    help      Read help pages.
+    
+    web       Visit Oh My Bash on the web.
+    
+    version   Echo current version. ($OMB_VERSION)
 
 --- Tools ---------------------------------------
   plugin
