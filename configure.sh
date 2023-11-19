@@ -15,7 +15,7 @@ echo "omb_init.sh" >> ./manifest.txt
 while read -r file; do
   sed -i "s/@@VERSION@@/$OMBVER/g" "$file"
   sed -i "s/@@PROJECTNAME@@/Oh My Bash/g" "$file"
-  sed -i "s/@@VER@@/Oh My Bash/g" "$file"
+  sed -i "s/@@ARCH@@/$(arch)/g" "$file"
   ((placeholders_done++))
   printf "\rAdding info to scripts... $placeholders_done files modded."
 done < ./manifest.txt
