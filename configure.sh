@@ -2,11 +2,10 @@
 # installer and other things intended to provide Oh My Bash.
 #
 # This script
-omb_version=0.5
 BASH_SEDIFIED=${OMB_BASH_PATH//\//\\/}
 printf "\rAdding info to scripts... "
 while read -r file; do
-  sed -i "s/@@VERSION@@/$omb_version/g" "$file"
+  sed -i "s/@@VERSION@@/$OMBVER/g" "$file"
   sed -i "s/@@PROJECTNAME@@/Oh My Bash/g" "$file"
   sed -i "s/@@VER@@/Oh My Bash/g" "$file"
   ((placeholders_done++))
