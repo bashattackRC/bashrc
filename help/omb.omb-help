@@ -4,7 +4,7 @@ as customizable as other shells such as zsh.
 
 @@PROJECTNAME@@ source code is normally prepared for general usage
 after installing. According to this preparation, you are using
-@@PROJECTNAME@@ @@VERSION@@. Your bash is located at @@BASHPATH@@.
+@@PROJECTNAME@@ @@VERSION@@. Your architecture is @@ARCH@@.
 
 Usage
   @@PROJECTNAME@@ has a command line tool called `omb`. This tool will
