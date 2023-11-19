@@ -1,4 +1,2 @@
 omb_init.sh
-plugins/omb-*
-themes/omb-*
-help/*.omb-help
+help/omb.omb-help
