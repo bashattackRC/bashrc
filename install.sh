@@ -18,9 +18,6 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" != 1 ]; then
   exec bash
 fi
 
-# Arrow powered menu
-#!/usr/bin/env bash
-
 # Renders a text based list of options that can be selected by the
 # user using up, down and enter keys and returns the chosen option.
 #
@@ -98,6 +95,7 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   echo "  can expose malicious 3rd-party plugins to your full"
   echo "  file system. You have chosen to install OMB anyways."
   echo "  Is this true? Select '5' to continue"
+  echo
   options=("1" "2" "3" "4" "5" "6" "7")
   case `select_opt "${options[@]}"` in
       4) true;;
@@ -105,21 +103,46 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   esac
 fi
 
-echo "Bash seems to be located at $BASH."
-echo "If this is incorrect you can specify a different path here."
-printf "Path to bash: "
-read OMB_BASH_PATH -e -i "$BASH"
+function switchtobash {
+  # Print info about shell change
+  echo "We are going to change your main shell to bash so OMB can function."
+  echo "Enter your password if you are asked to do so."
+  echo -e "\e[0;36mPress Enter to do this now...\e[0m"
+  read -s # waits until enter pressed
+  
+  # Do it now
+  sudo chsh $USER --shell /bin/bash
+  echo "Your default shell is now bash!"
+  echo
+}
 
-# Print info about shell change
-echo "We are going to change your main shell to bash so OMB can function."
-echo "Enter your password if you are asked to do so."
-echo -e "\e[0;36mPress Enter to do this now...\e[0m (Ctrl+C to cancel install)"
-read -s # waits until enter pressed
-
-# Do it now
-sudo chsh $USER --shell /bin/bash
-echo "Your default shell is now bash!"
+echo "Bash seems to be located at $BASH, but if this is incorrect"
+echo "you can specify a different path here. Else, press enter."
 echo
+printf "Path to bash: "
+read -e -i "$BASH" OMB_BASH_PATH
+if [ "$SHELL" == "$OMB_BASH_PATH" ]; then
+echo "Your default shell is the same as above. :)"
+else
+echo
+echo "To use Oh My Bash you need to use a Bash shell, but"
+echo "your default shell is set to $(basename $SHELL)".
+echo
+echo "This probably means you are either installing Oh My Bash"
+echo "on an arbritary system that does not recommend bash,"
+echo "or used another shell package to use other customizations"
+echo "such as Oh My Zsh."
+echo
+echo "There are many ways of switching such as replacing the"
+echo "shell in .profile."
+echo
+echo "The recommended way is using chsh. You can do this now."
+echo
+options=("Change my shell now" "Keep previous shell")
+case `select_opt "${options[@]}"` in
+    0) switchtobash;;
+    *) true;;
+esac
 
 # Info about bashrc
 if [ -f ~/".bashrc" ]; then
