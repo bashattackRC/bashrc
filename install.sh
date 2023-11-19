@@ -121,7 +121,7 @@ echo "you can specify a different path here. Else, press enter."
 echo "If you are unsure, please press enter without touching anything"
 echo "else you might end up breaking your setup."
 echo
-printf "Path to bash: "
+echo "Path to bash:"
 read -e -i "$BASH" OMB_BASH_PATH
 echo
 # Check if the current shell is bash
