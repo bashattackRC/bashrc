@@ -108,8 +108,8 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   echo "  Don't install Oh My Bash as root! Using root account"
   echo "  can expose malicious 3rd-party plugins to your full"
   echo "  file system. You have chosen to install OMB anyways."
-  echo "  Is this true?"
-  options=("No", "No", "No", "No", "Yes", "No", "No")
+  echo "  Is this true? Select '5' to continue"
+  options=("1" "2" "3" "4" "5" "6" "7")
   case `select_opt "${options[@]}"` in
       5) true;;
       *) exec bash;;
