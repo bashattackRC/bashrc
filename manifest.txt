@@ -1,2 +1,0 @@
-omb_init.sh
-help/omb.omb-help
