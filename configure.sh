@@ -2,7 +2,9 @@
 # installer and other things intended to provide Oh My Bash.
 #
 # This script
-BASH_SEDIFIED=${OMB_BASH_PATH//\//\\/}
+bashone=$OMB_BASH_PATH
+BASH_SEDIFIED=${bashone//\//\\/}
+unset bashone
 printf "\rAdding info to scripts... "
 # Find all files in the folders "themes" and "plugins" whose name starts with "omb-"
 find themes plugins -type f -name "omb-*" > ./manifest.txt
@@ -16,6 +18,7 @@ while read -r file; do
   sed -i "s/@@VERSION@@/$OMBVER/g" "$file"
   sed -i "s/@@PROJECTNAME@@/Oh My Bash/g" "$file"
   sed -i "s/@@ARCH@@/$(arch)/g" "$file"
+  sed -i "s/@@BASHPATH@@/$BASH_SEDIFIED/g" "$file"
   ((placeholders_done++))
   printf "\rAdding info to scripts... $placeholders_done files modded."
 done < ./manifest.txt
