@@ -3,7 +3,6 @@
 export OMBVER="0.9"
 set +x # exit on errors
 if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" != 1 ]; then
-  clear
   echo
   echo "  Don't install Oh My Bash as root! Using root account"
   echo "  can expose malicious 3rd-party plugins to your full"
@@ -91,16 +90,6 @@ function select_opt {
     echo $result
     return $result
 }
-
-# Echo the project name
-echo -n '''
- ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗    ██████╗  █████╗ ███████╗██╗  ██╗
-██╔═══██╗██║  ██║    ████╗ ████║╚██╗ ██╔╝    ██╔══██╗██╔══██╗██╔════╝██║  ██║
-██║   ██║███████║    ██╔████╔██║ ╚████╔╝     ██████╔╝███████║███████╗███████║
-██║   ██║██╔══██║    ██║╚██╔╝██║  ╚██╔╝      ██╔══██╗██╔══██║╚════██║██╔══██║
-╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║       ██████╔╝██║  ██║███████║██║  ██║
- ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝       ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-    Version '''; printf "$OMBVER"; echo -e '                      \e]8;;http://github.com/ohmybashrc/ohmybash\aGitHub...\e]8;;\a'  
 
 # Print info about forcing root
 if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
