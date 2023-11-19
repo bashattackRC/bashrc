@@ -86,10 +86,6 @@ function select_option {
     return $selected
 }
 
-# Clear the console to clean everything
-printf '\e[?1049h'
-clear
-
 # Echo the project name
 echo -n '''
  ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗    ██████╗  █████╗ ███████╗██╗  ██╗
@@ -115,6 +111,11 @@ if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   read -s -n 1
   echo
 fi
+
+echo "Bash seems to be located at $BASH."
+echo "If this is incorrect you can specify a different path here."
+printf "Path to bash: "
+read OMB_BASH_PATH -e -i "$BASH"
 
 # Print info about shell change
 echo "We are going to change your main shell to bash so OMB can function."
@@ -166,8 +167,6 @@ cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
 echo >> ~/.bashrc
 echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
-echo "Installed!"
-echo "Now press any key to run bash..."
+echo "Installed! Hit any key to use your customised bash shell:"
 read -s -n 1
-printf '\e[?1049l'
 exec bash
