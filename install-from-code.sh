@@ -8,9 +8,9 @@ fi
 mkdir ~/.omb
 source configure.sh
 cp omb_init.sh ~/.omb/
-cp -r themes ~/.omb/themes
-cp -r plugins ~/.omb/plugins
-cp -r help ~/.omb/help
+cp -r themes ~/.omb/
+cp -r plugins ~/.omb/
+cp -r help ~/.omb/
 echo "Done!"
 echo "Future updates may overwrite with the public code."
 echo "To prevent this consider copying the files yourself."
