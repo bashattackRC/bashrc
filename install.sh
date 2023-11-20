@@ -172,6 +172,21 @@ echo 'export theme="entoli"' >> ~/.bashrc
 echo
 
 # Install OMB
+if [ -d ".git" ] && [ -f ".proof_that_this_is_omb_git" ]; then
+    echo "This seems to be a local copy of the source code for Oh My Bash."
+    echo "This guess has been made because you have a file with the long name"
+    echo ".proof_that_this_is_omb_git and a folder called .git."
+    echo
+    echo "This could be a modified version of some sorts. You may want"
+    echo "to install the scripts from source code instead of the web."
+    echo "Where do you want to install Oh My Bash?"
+    echo
+    options=("From my source code" "From the web")
+    case `select_opt "${options[@]}"` in
+        0) exec bash install-from-code.sh;;
+        *) true;;
+    esac
+fi
 echo "Cloning..."
 git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
 echo "Preparing scripts..."
