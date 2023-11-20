@@ -16,4 +16,5 @@ echo "Future updates may overwrite with the public code."
 echo "To prevent this consider copying the files yourself."
 echo
 echo "Enjoy the shell's taste."
+echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 exec bash
