@@ -2,6 +2,15 @@
 # Loader for Oh My Bash. This is required to load plugins, themes,
 # and others.
 
+# Exit if this isn't bash
+if [ -z "$BASH" ]; then
+  echo
+  echo "Oh My Bash. It's called Oh My BASH. Please do not make a frankenstein setup."
+  echo "Oh My Bash contains syntax incompatible with POSIX and thus several foreign shells."
+  echo "Cancelling init. Consider changing your shell to bash."
+  return
+fi
+
 # Expose ohmybash version to BASH_VERSION
 export BASH_REAL_VERSION="$BASH_VERSION"
 export BASH_VERSION="$BASH_VERSION omb-@@VERSION@@"
