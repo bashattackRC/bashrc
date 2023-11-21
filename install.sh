@@ -1,5 +1,15 @@
 #!/bin/bash
 # SPDX-License-Identifier: MIT
+if [ -z "$BASH" ]; then
+  echo
+  echo "Oh My Bash. It's called Oh My BASH. Please do not make a frankenstein setup."
+  echo "Oh My Bash contains syntax incompatible with POSIX and thus several foreign shells."
+  echo "Forwarding the script to compatible bash shell."
+  echo
+  bash install.sh
+  exit $?
+fi
+
 export OMBVER="0.9"
 set +x # exit on errors
 if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" != 1 ]; then
