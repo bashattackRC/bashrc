@@ -60,4 +60,6 @@ complete -F _omb omb
 
 # load more
 mkdir -p ~/.omb/completion
-source ~/.omb/completion/omb-*
+if [ -n "$(find ~/.omb/completion -type f -name 'omb-*')" ]; then
+    source ~/.omb/completion/omb-*
+fi
