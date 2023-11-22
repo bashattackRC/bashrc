@@ -1,0 +1,63 @@
+# bash completion for omb function
+_omb()
+{
+    local cur prev commands tools
+
+    # get the current and previous words
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    # define the possible commands and tools
+    commands="plugin theme update reload edit doctor issueinf help web version"
+    tools="enable disable"
+
+    # complete the first argument with commands
+    if [ $COMP_CWORD -eq 1 ]; then
+        COMPREPLY=( $(compgen -W "${commands}" -- ${cur}) )
+        return 0
+    fi
+
+    # complete the second argument with plugin or theme names
+    if [ $COMP_CWORD -eq 2 ]; then
+        case "${prev}" in
+            plugin)
+                # get the list of plugins from the plugins array
+                local plugins
+                plugins=$(printf "%s " "${plugins[@]}")
+                COMPREPLY=( $(compgen -W "${plugins}" -- ${cur}) )
+                return 0
+                ;;
+            theme)
+                # get the list of themes from the themes directory
+                local themes
+                themes=$(ls ~/.omb/themes/omb-* | sed 's/.*omb-//')
+                COMPREPLY=( $(compgen -W "${themes}" -- ${cur}) )
+                return 0
+                ;;
+            help)
+                # get the list of help documents from the help directory
+                local docs
+                docs=$(ls ~/.omb/help/*.omb-help | sed 's/.*\///;s/\.omb-help//')
+                COMPREPLY=( $(compgen -W "${docs}" -- ${cur}) )
+                return 0
+                ;;
+        esac
+    fi
+
+    # complete the third argument with tools
+    if [ $COMP_CWORD -eq 3 ]; then
+        case "${prev}" in
+            plugin|theme)
+                COMPREPLY=( $(compgen -W "${tools}" -- ${cur}) )
+                return 0
+                ;;
+        esac
+    fi
+}
+
+# register the completion function for omb
+complete -F _omb omb
+
+# load more
+mkdir -p ~/.omb/completion
+source ~/.omb/completion/omb-*
