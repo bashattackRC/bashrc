@@ -1,9 +1,9 @@
 # This is NOT a general-purpose script. It is intended for the
 # installer and other things intended to provide Oh My Bash.
 #
-# This script
+# This script replaces placeholders with optioms based on the
+# system's resources. Users should run omb update if this changes.
 BASH_SEDIFIED=${ombBASH//\//\\/}
-unset bashone
 printf "\rAdding info to scripts... "
 # Find all files in the folders "themes" and "plugins" whose name starts with "omb-"
 find themes plugins -type f -name "omb-*" > ./manifest.txt
@@ -14,7 +14,7 @@ echo "omb_init.sh" >> ./manifest.txt
 
 # Loop through the files in manifest.txt and replace placeholders
 while read -r file; do
-  sed -i "s/@@VERSION@@/$OMBVER/g" "$file"
+  sed -i "s/@@VERSION@@/1.0/g" "$file"
   sed -i "s/@@PROJECTNAME@@/Oh My Bash/g" "$file"
   sed -i "s/@@ARCH@@/$(arch)/g" "$file"
   sed -i "s/@@BASHPATH@@/$BASH_SEDIFIED/g" "$file"
