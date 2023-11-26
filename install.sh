@@ -198,7 +198,7 @@ if [ -d ".git" ] && [ -f ".proof_that_this_is_omb_git" ]; then
     esac
 fi
 echo "Cloning..."
-git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
+git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q --branch $OMBVER
 echo "Preparing scripts..."
 cd ~/.omb-git
 export ombBASH
