@@ -1,8 +1,8 @@
 This help page is about developing themes. In the context of @@PROJECTNAME@@, themes are custom
 scripts to create prompts that make Bash look more fancy than an old unused AK-47.
 
-REQUIREMENTS
-* Install the latest Oh My Bash version. You shouldn't need to do this as you are likely
+Requirements
+* Install the latest @@PROJECTNAME@@ version. You shouldn't need to do this as you are likely
   reading this page using the `ba help` command.
 * Install git and authenticate your GitHub account to push the changes to users.
 * Bash should be available on your system. Systems with GNU userlands should offer bash by default.
@@ -10,7 +10,7 @@ REQUIREMENTS
 * Use bash as your default shell. If you don't want to, run the following command: 
            exec bash
 
-MULTILINE PROMPTS
+Multiline
   Bash will go mad if you add multiple lines to the PS1 variable. There is a workaround for this.
   Instead of adding multiple lines to PS1, add a new command to PROMPT_COMMANDS and use it to echo any lines
   before the part where input is took:
@@ -19,3 +19,14 @@ MULTILINE PROMPTS
   This may cause glitches after changing the theme, as the lines that don't take input will stay there.
   Enabling another multiline theme will cause a group of lines coming from other themes.
   A fix will be released soon ;)
+
+Base
+  Themes go in the themes folder under the prefix omb-.
+  Bash uses the value "$PS1" (NOT Playstation) to store the prompt. PS1 stands for Prompt String 1.
+
+Rules for Submission:
+  * DON'T add specific integrations to themes, other than theme helpers needed to provide info to
+    the theme. Integrations should be in plugins.
+  * Themes should not leak colors out of the prompt. Always reset the color at the end.
+  * Don't use "echo", "printf", or others in themes, except in the case of the multiline workaround
+    mentioned in this document.
