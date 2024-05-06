@@ -98,7 +98,7 @@ enable plugins, choose themes, and more.
     
     theme     Change themes and get the current one.
     
-    update    Update Oh My Bash to the newest version.
+    update    Update to the newest version.
     
     reload    Replace the current bash session with another.
     
@@ -113,7 +113,7 @@ enable plugins, choose themes, and more.
   About
     help      Read help pages.
     
-    web       Visit Oh My Bash on the web.
+    web       Visit our website.
     
     version   Echo current version. ($OMB_VERSION)
 
