@@ -31,11 +31,11 @@ distro_find() {
   	nice "Distro" "Arch family (Arch, Manjaro, EndeavourOS, etc)"
   	return
   fi
-  error "Distro" "Couldn't find any ways to identify distro"
+  warning "Distro" "Gotta be some FBI distro or something."
 }
 
 if ! [ -d ~/".omb" ]; then
-  error "Missing OMB" "Oh My Bash is not installed."
+  error "Missing Bash Attack" "Bash Attack is not installed."
   exit 1
 fi
 
@@ -46,7 +46,7 @@ if [[ $EUID == 0 ]]; then
   warning "Root" "Root installs are unsupported"
 fi
 
-info "Oh My Bash version" "$OMB_VERSION"
+info "Bash Attack version" "$OMB_VERSION"
 info "Bash version" "$BASH_REAL_VERSION"
 if (git version > /dev/null); then
   nice "Git" "$(git version) ($(type git))"
