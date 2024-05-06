@@ -14,8 +14,8 @@ echo "omb_init.sh" >> ./manifest.txt
 
 # Loop through the files in manifest.txt and replace placeholders
 while read -r file; do
-  sed -i "s/@@VERSION@@/1.0/g" "$file"
-  sed -i "s/@@PROJECTNAME@@/Oh My Bash/g" "$file"
+  sed -i "s/@@VERSION@@/1.1/g" "$file"
+  sed -i "s/@@PROJECTNAME@@/Bash Attack/g" "$file"
   sed -i "s/@@ARCH@@/$(arch)/g" "$file"
   sed -i "s/@@BASHPATH@@/$BASH_SEDIFIED/g" "$file"
   ((placeholders_done++))
