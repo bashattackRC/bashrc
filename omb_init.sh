@@ -84,8 +84,8 @@ done
 # Load Theme
 source ~/.omb/themes/omb-$theme
 
-# Create omb function
-omb() {
+# Create ba function
+ba() {
   if [[ "$1" == "" ]]; then
     echo 'This function allows you to configure Bash Attack,
 enable plugins, choose themes, and more.
@@ -106,7 +106,7 @@ enable plugins, choose themes, and more.
     
 
   Troubleshooting
-    doctor    Trouble-shoot issues with omb.
+    doctor    Trouble-shoot issues with ba.
     
     issueinf  Generate information that must be provided in bug reports.
 
@@ -138,8 +138,8 @@ enable plugins, choose themes, and more.
       echo "Disabling plugin $2"
     else
       echo "${#plugins[@]} plugins enabled. Here is a list of them."
-      echo "You can always enable plugins using omb plugin [name] enable"
-      echo "and disable using omb plugin [name] disable."
+      echo "You can always enable plugins using ba plugin [name] enable"
+      echo "and disable using ba plugin [name] disable."
       echo
       # define the number of columns for the grid
       cols=6
@@ -175,11 +175,7 @@ enable plugins, choose themes, and more.
     fi
   elif [[ "$1" == "update" ]]; then
       if [ "$EUID" = 0 ]; then
-        echo "Oh My Bash doesn't support installs on root. This means"
-        echo "you cannot update it. Please consider uninstalling Oh My"
-        echo "Bash, then install it again as a normal user."
-        echo
-        echo "Update canceled."
+        echo "Can't update as root."
         return
       fi
       exec bash -c "$(curl -fsSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/update.sh)"
@@ -192,17 +188,15 @@ enable plugins, choose themes, and more.
       echo "Path to bash: @@BASHPATH@@"
       if [ "$EUID" = 0 ]; then
         echo
-        echo "Oh My Bash doesn't support installs on root. This means"
-        echo "you cannot update it. Please consider uninstalling Oh My"
-        echo "Bash, then install it again as a normal user."
+        echo "Bash Attack doesn't support installs on root. This means"
+        echo "you cannot update it. Consider installing as non-root."
       fi
   elif [[ "$1" == "reload" ]]; then
       exec bash
   elif [[ "$1" == "help" ]]; then
       if [ -z "$2" ]; then
         echo "Please specify a document (e.g. omb help omb):"
-        ls ~/.omb/help --color=none
-        echo "Do not enter .omb-help suffixes."
+        ls -1 | sed -e 's/\.omb-help$//'
         return
       fi
       less ~/.omb/help/$2.omb-help
@@ -216,7 +210,7 @@ enable plugins, choose themes, and more.
          read -n 1 y
          echo
          if [[ $y == "y" ]] || [[ $y == "" ]]; then
-           curl -fSL https://raw.githubusercontent.com/TylerMS887/ohmybash/main/doctor.sh -o ~/.omb/doctor.sh
+           curl -fSL https://raw.githubusercontent.com/bashattackRC/bashrc/main/doctor.sh -o ~/.omb/doctor.sh
          else
            return
          fi
