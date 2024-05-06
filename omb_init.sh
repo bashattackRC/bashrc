@@ -228,3 +228,6 @@ enable plugins, choose themes, and more.
       echo "Invalid command"
   fi
 }
+
+# Change old omb command to ba
+alias omb="ba"
