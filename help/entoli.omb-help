@@ -1,4 +1,4 @@
-Entoli is the default Oh My Bash theme. Entoli is a Greek word for
+Entoli is the default Bash Attack theme. Entoli is a Greek word for
 `command`. Entoli is designed to be appealing and basic.
 
 Requirements
@@ -15,5 +15,5 @@ Git
   by default. You can disable it by running `omb edit` and removing `git`
   from the `plugins` list.
 
-  Please note that this will also disable other Git features Oh My Bash
+  Please note that this will also disable other Git features Bash Attack
   has to offer, such as aliases to simplify Git commands.
