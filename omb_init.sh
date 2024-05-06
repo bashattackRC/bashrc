@@ -5,8 +5,8 @@
 # Exit if this isn't bash
 if [ -z "$BASH" ]; then
   echo
-  echo "Oh My Bash. It's called Oh My BASH. Please do not make a frankenstein setup."
-  echo "Oh My Bash contains syntax incompatible with POSIX and thus several foreign shells."
+  echo "Please do not make a frankenstein setup."
+  echo "Bash Attack contains syntax incompatible with POSIX and thus several foreign shells."
   echo "Cancelling init. Consider changing your shell to bash."
   return
 fi
@@ -87,7 +87,7 @@ source ~/.omb/themes/omb-$theme
 # Create omb function
 omb() {
   if [[ "$1" == "" ]]; then
-    echo 'This function allows you to configure Oh My Bash,
+    echo 'This function allows you to configure Bash Attack,
 enable plugins, choose themes, and more.
 --- Usage ---------------------------------------
   omb command [element tool]
@@ -186,14 +186,6 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "edit" ]]; then
       edit-file ~/.bashrc && exec bash
   elif [[ "$1" == "version" ]]; then
-      echo -e "\e]8;;https://github.com/ohmybashrc/ohmybash/\a   ____  _       __  __         ____            _     
-  / __ \\| |     |  \\/  |       |  _ \\          | |    
- | |  | | |__   | \\  / |_   _  | |_) | __ _ ___| |__  
- | |  | | '_ \\  | |\\/| | | | | |  _ < / _\` / __| '_ \\ 
- | |__| | | | | | |  | | |_| | | |_) | (_| \\__ \\ | | |
-  \\____/|_| |_| |_|  |_|\\__, | |____/ \\__,_|___/_| |_|
-                         __/ |                        
-                        |___/                         \e]8;;\a"
       echo "@@VERSION@@ on $BASH_REAL_VERSION"
       echo -e "Licensed under the \e]8;;https://opensource.org/license/mit/\aMIT License\e]8;;\a"
       echo "User: $(id -un)@$(hostname)"
@@ -218,8 +210,7 @@ enable plugins, choose themes, and more.
       xdg-open "https://ohmybashrc.github.io" || wslview "https://ohmybashrc.github.io"
   elif [[ "$1" == "doctor" ]]; then
       if [ ! -f ~/".omb/doctor.sh" ]; then
-         echo "This will download a script from the OMB repos."
-         echo "The script may not support older versions of OMB."
+         echo "This will download a script from the repos."
          echo "Updates will delete this script as it is stored internally."
          echo -n "Continue? (Y/n) "
          read -n 1 y
