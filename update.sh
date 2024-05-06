@@ -4,15 +4,11 @@ export OMBVER="0.9"
 set +x # exit on errors
 
 if [ ! -d ~/".omb" ]; then
-  echo "Oh My Bash is not installed."
+  echo "Bash Attack is not installed."
   exit 1
 fi
 if [ "$EUID" = 0 ]; then
-  echo "Oh My Bash doesn't support installs on root. This means"
-  echo "you cannot update it. Please consider uninstalling Oh My"
-  echo "Bash, then install it again as a normal user."
-  echo
-  echo "Update aborted."
+  echo "Update aborted. Type `ba version` for more info."
   echo
   exec bash
 fi
