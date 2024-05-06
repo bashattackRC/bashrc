@@ -1,4 +1,7 @@
-# Oh My Bash!
+# Bash Attack
+
+**This was originally called Oh My Bash. It has been renamed because the devs found out there is another project with the same name.**
+
 Fresh transformation of Bash from a useless playground to a full-featured shell.
 
 ## Install
