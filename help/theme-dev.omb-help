@@ -1,9 +1,9 @@
-This help page is about developing themes. In the context of Oh my Bash, themes are custom
+This help page is about developing themes. In the context of @@PROJECTNAME@@, themes are custom
 scripts to create prompts that make Bash look more fancy than an old unused AK-47.
 
 REQUIREMENTS
 * Install the latest Oh My Bash version. You shouldn't need to do this as you are likely
-  reading this page using the `omb help` command.
+  reading this page using the `ba help` command.
 * Install git and authenticate your GitHub account to push the changes to users.
 * Bash should be available on your system. Systems with GNU userlands should offer bash by default.
   macOS also provides bash, but will be forever stuck on bash 3 due to GPL 3.0 relicensing.
