@@ -7,26 +7,26 @@ after installing. According to this preparation, you are using
 @@PROJECTNAME@@ @@VERSION@@. Your architecture is @@ARCH@@.
 
 Usage
-  @@PROJECTNAME@@ has a command line tool called `omb`. This tool will
+  @@PROJECTNAME@@ has a command line tool called `ba`. This tool will
   ONLY WORK WITH BASH because it is not a real program, but a 
   Bash function generated during startup.
 
-  Use the omb tool to:
+  Use the ba tool to:
     * Enable and disable plugins
     * Enable your favourite theme (may require additional fonts)
     * Add extra commands to your bashrc
 
-  To see the full list of actions possible with omb, type
-  `omb` into your Bash command prompt.
+  To see the full list of actions possible with ba, type
+  `ba` into your Bash command prompt.
 
 Integration
   Bash not only can integrate with your system`s software, but with
   @@PROJECTNAME@@ you can integrate with Flatpak, Git, and other software.
 
-  By default, OMB integrates with Git. OMB shows your working branch
+  By default, @@PROJECTNAME@@ integrates with Git, shows your working branch
   in your Bash prompt, and also gives you some aliases to work with
   Git. Goodbye git push, hello gp.
 
 License
   @@PROJECTNAME@@ and any related files in ~/.omb are licensed under the
-  MIT License. Contribute on GitHub: https://github.com/ohmybashrc
+  MIT License. Contribute on GitHub: https://github.com/bashattackRC/bashrc
