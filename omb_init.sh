@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: MIT
-# Loader for Oh My Bash. This is required to load plugins, themes,
-# and others.
+# Loader for Bash Attack. This is required to load plugins, themes, and others.
 # Do not edit this script. Customizations in it will be overwritten by updates,
 # and you are also able to edit .bashrc to add customizations there.
 
