@@ -44,7 +44,7 @@ function edit-file {
 no_xterm_check() {
   test "$TERM" != xterm* || test "$TERM" != rxvt*
 }
-if no_xterm_check && [[ -z "$DISPLAY" ]]; then
+if no_xterm_check || [[ -z "$DISPLAY" ]]; then
   # The terminal is graphical, so set XTERM_UNAVAILABLE to "no"
   XTERM_UNAVAILABLE="no"
 else
