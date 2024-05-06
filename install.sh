@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 if [ -z "$BASH" ]; then
   echo
-  echo "Oh My Bash. It's called Oh My BASH. Please do not make a frankenstein setup."
+  echo "It's called BASH attack. Please do not make a frankenstein setup."
   echo "Oh My Bash contains syntax incompatible with POSIX and thus several foreign shells."
   echo "Forwarding the script to compatible bash shell."
   echo
@@ -14,7 +14,7 @@ export OMBVER="0.9"
 set +x # exit on errors
 if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" != 1 ]; then
   echo
-  echo "  Don't install Oh My Bash as root! Using root account"
+  echo "  Don't install this script as root! Using root account"
   echo "  can expose malicious 3rd-party plugins to your full"
   echo "  file system."
   echo
@@ -101,7 +101,7 @@ function select_opt {
 # Print info about forcing root
 if [ "$EUID" = 0 ] && [ "$ALLOW_SUDO_INSTALL" = 1 ]; then
   echo
-  echo "  Don't install Oh My Bash as root! Using root account"
+  echo "  Don't install as root! Using root account"
   echo "  can expose malicious 3rd-party plugins to your full"
   echo "  file system. You have chosen to install OMB anyways."
   echo "  Is this true? Select '5' to continue"
@@ -115,7 +115,7 @@ fi
 
 function switchtobash {
   # Print info about shell change
-  echo "We are going to change your main shell to bash so OMB can function."
+  echo "We are going to change your main shell to bash."
   echo "Enter your password if you are asked to do so."
   echo -e "\e[0;36mPress Enter to do this now...\e[0m"
   read -s # waits until enter pressed
@@ -137,20 +137,18 @@ echo
 # Check if the current shell is bash
 if [ "$SHELL" != "$ombBASH" ]; then
     echo
-    echo "To use Oh My Bash you need to use a Bash shell, but"
+    echo "You probably want to use a Bash shell, but"
     echo "your default shell is set to $(basename $SHELL)."
     echo
     echo "This probably means you are either installing Oh My Bash"
-    echo "on an arbritary system that does not recommend bash,"
+    echo "on an arbritary system that does not come with bash,"
     echo "or used another shell package to use other customizations"
     echo "such as Oh My Zsh."
     echo
-    echo "There are many ways of switching such as replacing the"
-    echo "shell in .profile."
-    echo
+    echo "There are many ways of switching to Bash."
     echo "The recommended way is using chsh. You can do this now."
     echo
-    options=("Change my shell now" "Keep previous shell")
+    options=("Chsh now" "Keep previous shell")
     case `select_opt "${options[@]}"` in
         0) switchtobash;;
         *) true;;
@@ -183,13 +181,13 @@ echo
 
 # Install OMB
 if [ -d ".git" ] && [ -f ".proof_that_this_is_omb_git" ]; then
-    echo "This seems to be a local copy of the source code for Oh My Bash."
+    echo "This seems to be a local copy of the source code."
     echo "This guess has been made because you have a file with the long name"
     echo ".proof_that_this_is_omb_git and a folder called .git."
     echo
     echo "This could be a modified version of some sorts. You may want"
     echo "to install the scripts from source code instead of the web."
-    echo "Where do you want to install Oh My Bash?"
+    echo "Where do you want to install?"
     echo
     options=("From my source code" "From the web")
     case `select_opt "${options[@]}"` in
