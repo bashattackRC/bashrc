@@ -56,7 +56,7 @@ _omb()
 }
 
 # register the completion function for omb
-complete -F _omb omb
+complete -F _omb ba
 
 # load more
 mkdir -p ~/.omb/completion
