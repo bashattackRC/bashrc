@@ -32,8 +32,8 @@ PROMPT_COMMAND='_promptcommand; echo -ne "\033]0;${XTERM_TITLE_BEGINNING}$(basen
 function edit-file {
   editor $@ || \
   micro  $@ || \
-  emacs  $@ || \
   vim    $@ || \
+  emacs  $@ || \
   nano   $@ || \
   vi     $@ || \
   echo "No editor found. Please install one."
@@ -196,7 +196,7 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "help" ]]; then
       if [ -z "$2" ]; then
         echo "Please specify a document (e.g. omb help omb):"
-        ls -1 | sed -e 's/\.omb-help$//'
+        ls -g | sed -e 's/\.omb-help$//'
         return
       fi
       less ~/.omb/help/$2.omb-help
