@@ -15,7 +15,7 @@ fi
 
 # Update OMB
 echo "Updating..."
-git clone https://github.com/ohmybashrc/ohmybash ~/.omb-git -q
+git clone https://github.com/bashattackRC/bashrc ~/.omb-git -q
 rm -rf ~/.omb
 mkdir ~/.omb
 cd ~/.omb-git
