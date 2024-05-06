@@ -196,7 +196,7 @@ enable plugins, choose themes, and more.
   elif [[ "$1" == "help" ]]; then
       if [ -z "$2" ]; then
         echo "Please specify a document (e.g. omb help omb):"
-        ls -g | sed -e 's/\.omb-help$//'
+        ls -g ~/.omb/help | sed -e 's/\.omb-help$//'
         return
       fi
       less ~/.omb/help/$2.omb-help
