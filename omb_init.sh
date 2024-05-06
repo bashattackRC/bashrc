@@ -1,7 +1,14 @@
 # SPDX-License-Identifier: MIT
 # Loader for Bash Attack. This is required to load plugins, themes, and others.
+# FOR USERS:
 # Do not edit this script. Customizations in it will be overwritten by updates,
 # and you are also able to edit .bashrc to add customizations there.
+# FOR GITHUB DEVELOPERS:
+# When this script is edited. EVERYTHING will be changed for everyone who updates
+# to the new version. Don't add softlocks, rm commands, or anything here.
+# Don't add integrations, integrations should be made as plugins.
+# Don't add PROMPT_COMMANDS in omb_init, because those are for helping
+# plugins and themes adapt to the prompt.
 
 # Exit if this isn't bash
 if [ -z "$BASH" ]; then
