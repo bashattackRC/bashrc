@@ -14,17 +14,16 @@ if [ "$EUID" = 0 ]; then
 fi
 
 # Update OMB
-echo "Updating..."
-git clone https://github.com/bashattackRC/bashrc ~/.omb-git -q
+git clone https://github.com/bashattackRC/bashrc ~/.omb-git
 rm -rf ~/.omb
 mkdir ~/.omb
 cd ~/.omb-git
 bash configure.sh
 cd ~
-cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
-cp -r ~/.omb-git/help ~/.omb/help
-cp -r ~/.omb-git/themes ~/.omb/themes
-cp -r ~/.omb-git/plugins ~/.omb/plugins
-rm -rf ~/.omb-git
+cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh -v
+cp -r ~/.omb-git/help ~/.omb/help -v
+cp -r ~/.omb-git/themes ~/.omb/themes -v
+cp -r ~/.omb-git/plugins ~/.omb/plugins -v
+rm -rf ~/.omb-git -v
 echo "Updated!"
 exec bash
