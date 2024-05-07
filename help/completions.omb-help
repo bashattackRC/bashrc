@@ -1,0 +1,16 @@
+The completions plugin allows you to use completions related
+to the `ba` command, and also allows you to place your own
+completion scripts in ~/.omb/completions.
+
+Custom Completions
+  Completions are prefixed with `omb-` without quotes and with
+  the dash. Here`s a base:
+  _baz()
+  {
+      local cur=${COMP_WORDS[COMP_CWORD]}
+      COMPREPLY=( $(compgen -W "fooOption barOption" -- $cur) )
+  }
+  complete -F _baz baz
+
+  This will allow completing `baz` with the options `fooOption`
+  and `barOption`.
