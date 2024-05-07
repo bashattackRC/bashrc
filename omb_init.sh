@@ -98,8 +98,7 @@ ba() {
     echo 'This function allows you to configure Bash Attack,
 enable plugins, choose themes, and more.
 --- Usage ---------------------------------------
-  omb command [element tool]
-
+  ba command [element tool]
 --- Commands ------------------------------------
   Utilities
     plugin    Enable and disable plugins.
@@ -112,19 +111,17 @@ enable plugins, choose themes, and more.
     
     edit      Edit the bashrc file.
     
-
   Troubleshooting
     doctor    Trouble-shoot issues with ba.
     
     issueinf  Generate information that must be provided in bug reports.
-
+    
   About
     help      Read help pages.
     
     web       Visit our website.
     
     version   Echo current version. ($OMB_VERSION)
-
 --- Tools ---------------------------------------
   plugin
     enable   Enable a plugin
@@ -134,7 +131,6 @@ enable plugins, choose themes, and more.
     enable   Enable a theme
 
   help accepts the name of a help document.
-
   update, reload, edit, web and version have no tools.'  | more
     return
   fi
