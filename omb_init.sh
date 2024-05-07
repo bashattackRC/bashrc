@@ -207,7 +207,7 @@ enable plugins, choose themes, and more.
         ls -g ~/.omb/help | sed -e 's/\.omb-help$//'
         return
       fi
-      less ~/.omb/help/$2.omb-help
+      nano --view ~/.omb/help/$2.omb-help || less ~/.omb/help/$2.omb-help || more ~/.omb/help/$2.omb-help || cat ~/.omb/help/$2.omb-help 
   elif [[ "$1" == "web" ]]; then
       xdg-open "https://ohmybashrc.github.io" || wslview "https://ohmybashrc.github.io"
   elif [[ "$1" == "doctor" ]]; then
