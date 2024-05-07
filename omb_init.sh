@@ -5,7 +5,7 @@
 # and you are also able to edit .bashrc to add customizations there.
 # FOR GITHUB DEVELOPERS:
 # When this script is edited. EVERYTHING will be changed for everyone who updates
-# to the new version. Don't add softlocks, rm commands, or anything here.
+# to the new version. Don't add softlocks, rm commands, or other traps here.
 # Don't add integrations, integrations should be made as plugins.
 # Don't add PROMPT_COMMANDS in omb_init, because those are for helping
 # plugins and themes adapt to the prompt.
