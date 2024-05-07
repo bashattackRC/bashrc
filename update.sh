@@ -15,15 +15,13 @@ fi
 
 # Update OMB
 git clone https://github.com/bashattackRC/bashrc ~/.omb-git
-rm -rf ~/.omb
-mkdir ~/.omb
 cd ~/.omb-git
 bash configure.sh
 cd ~
-cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh -v
-cp -r ~/.omb-git/help ~/.omb/help -v
-cp -r ~/.omb-git/themes ~/.omb/themes -v
-cp -r ~/.omb-git/plugins ~/.omb/plugins -v
+cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh -vf
+cp -r ~/.omb-git/help ~/.omb/help -vf
+cp -r ~/.omb-git/themes ~/.omb/themes -vf
+cp -r ~/.omb-git/plugins ~/.omb/plugins -vf
 rm -rf ~/.omb-git -v
 echo "Updated!"
 exec bash
