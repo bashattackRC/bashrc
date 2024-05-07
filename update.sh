@@ -15,6 +15,8 @@ fi
 
 # Update OMB
 git clone https://github.com/bashattackRC/bashrc ~/.omb-git
+cd ~/.omb
+rm -rfv omb_init.sh help plugins themes
 cd ~/.omb-git
 bash configure.sh
 cd ~
