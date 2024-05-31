@@ -20,7 +20,18 @@ category() {
 
 distro_find() {
   if [[ $OSTYPE == "linux-android" ]]; then
-  	nice "Distro" "Android (Bash running under Termux)"
+  	warning "Distro" "Android (Bash running under Termux)"
+    info "Distro" "Bash Attack is not fully optimized for Termux."
+  	return
+  fi
+  if [[ $OSTYPE == "msys" ]]; then
+  	warning "Distro" "Git Bash"
+    info "Distro" "Bash Attack is not fully optimized for MSYS."
+  	return
+  fi
+  if [[ $OSTYPE == "msys" ]]; then
+  	nice "Distro" "Git Bash"
+    info "Distro" "Bash Attack is not fully optimized for MSYS."
   	return
   fi
   if [[ -f "/etc/debian_version" ]]; then
@@ -31,7 +42,7 @@ distro_find() {
   	nice "Distro" "Arch family (Arch, Manjaro, EndeavourOS, etc)"
   	return
   fi
-  warning "Distro" "Gotta be some FBI distro or something."
+  warning "Distro" "Failed to find distro."
 }
 
 if ! [ -d ~/".omb" ]; then
@@ -39,7 +50,7 @@ if ! [ -d ~/".omb" ]; then
   exit 1
 fi
 
-echo "Sourcing bashrc... (You can trust this script)"
+echo "Loading bashrc..."
 source ~/.bashrc
 
 if [[ $EUID == 0 ]]; then
@@ -71,4 +82,19 @@ if (python3 -c "print('test')" > /dev/null); then
   nice "Python 3" "Test script executed successfully"
 else
   warning "Python 3" "Test script failed. Some plugins require Python"
+fi
+info "Info" "The real test begins here. The omb_init script will be compared to a copy from github."
+info "Info" "If this doesn't match, you likely modified the script, something you shouldn't do."
+info "Info" "In other cases you might just need to run omb update."
+git clone https://github.com/bashattackRC/bashrc.git ~/.doctor_test_BashAttack
+cd ~/.doctor_test_BashAttack
+bash configure.sh
+cd ~
+if cmp --silent -- "~/.doctor_test_BashAttack/omb_init.sh" "~/.omb/omb_init.sh"; then
+  nice "Files" "The server has the same script that you have."
+else
+  error "Files" "The server has different scripts from you."
+  error "Files" "A Bash Attack Update will be initiated now."
+  bash -c "$(curl -fsSL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/bashattackRC/bashrc/main/update.sh)"
+  info "Files" "Updated."
 fi
