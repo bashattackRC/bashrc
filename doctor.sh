@@ -98,3 +98,4 @@ if cmp --silent -- "~/.doctor_test_BashAttack/omb_init.sh" "~/.omb/omb_init.sh";
 else
   nice "Files" "The server has the same script that you have."
 fi
+rm -rf  ~/.doctor_test_BashAttack
