@@ -25,5 +25,6 @@ cp -r ~/.omb-git/help ~/.omb/help -vf
 cp -r ~/.omb-git/themes ~/.omb/themes -vf
 cp -r ~/.omb-git/plugins ~/.omb/plugins -vf
 rm -rf ~/.omb-git -v
+rm ~/.omb/doctor.sh
 echo "Updated!"
 exec bash
