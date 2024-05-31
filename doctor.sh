@@ -91,10 +91,10 @@ cd ~/.doctor_test_BashAttack
 bash configure.sh
 cd ~
 if cmp --silent -- "~/.doctor_test_BashAttack/omb_init.sh" "~/.omb/omb_init.sh"; then
-  nice "Files" "The server has the same script that you have."
-else
   error "Files" "The server has different scripts from you."
   error "Files" "A Bash Attack Update will be initiated now."
   bash -c "$(curl -fsSL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/bashattackRC/bashrc/main/update.sh)"
   info "Files" "Updated."
+else
+  nice "Files" "The server has the same script that you have."
 fi
