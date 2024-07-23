@@ -19,7 +19,7 @@ while read -r file; do
   sed -i "s/@@ARCH@@/$(arch)/g" "$file"
   sed -i "s/@@BASHPATH@@/$BASH_SEDIFIED/g" "$file"
   ((placeholders_done++))
-  printf "\rAdding info to scripts... $placeholders_done files modded."
+  printf "\rAdding info to scripts... [$placeholders_done]"
 done < ./manifest.txt
 echo
 unset placeholders_done
