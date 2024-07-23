@@ -3,7 +3,6 @@
 if [ -z "$BASH" ]; then
   echo
   echo "It's called BASH attack. Please do not make a frankenstein setup."
-  echo "Oh My Bash contains syntax incompatible with POSIX and thus several foreign shells."
   echo "Forwarding the script to compatible bash shell."
   echo
   bash install.sh
@@ -116,9 +115,7 @@ fi
 function switchtobash {
   # Print info about shell change
   echo "We are going to change your main shell to bash."
-  echo "Enter your password if you are asked to do so."
-  echo -e "\e[0;36mPress Enter to do this now...\e[0m"
-  read -s # waits until enter pressed
+  echo "Enter your credentials if you are asked to do so."
   
   # Do it now
   sudo chsh $USER --shell $ombBASH
@@ -140,7 +137,7 @@ if [ "$SHELL" != "$ombBASH" ]; then
     echo "You probably want to use a Bash shell, but"
     echo "your default shell is set to $(basename $SHELL)."
     echo
-    echo "This probably means you are either installing Oh My Bash"
+    echo "This probably means you are either installing Bash Attack"
     echo "on an arbritary system that does not come with bash,"
     echo "or used another shell package to use other customizations"
     echo "such as Oh My Zsh."
