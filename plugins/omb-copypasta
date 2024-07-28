@@ -1,6 +1,22 @@
 # Enables the ability to paste scripts from the internet that leave
 # the $ mark behind making them impossible to run by default.
-#
-# This breaks programs that use the binary name $ however.
 
-alias $=""
+copypasta() {
+    local tmp_file="/tmp/copypasta"
+
+    # Create the temporary file
+    touch "$tmp_file"
+
+    # Open the file using select-editor
+    select-editor "$tmp_file"
+
+    # Remove $ signs from the beginning of each line
+    sed -i 's/^\$//' "$tmp_file"
+
+    # Run the script (replace with your actual command)
+    # Example: source "$tmp_file"
+    # Note: Adjust this step based on your specific use case
+
+    # Delete the temporary file
+    rm "$tmp_file"
+}
