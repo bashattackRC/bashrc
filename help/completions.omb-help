@@ -2,6 +2,10 @@ The completions plugin allows you to use completions related
 to the `ba` command, and also allows you to place your own
 completion scripts in ~/.omb/completions.
 
+Note that this plugin doesn't offer the ability to use
+completions in your terminal. You should have that already,
+via the bash-completion system on most distros.
+
 Custom Completions
   Completions are prefixed with `omb-` without quotes and with
   the dash. Here`s a base:
