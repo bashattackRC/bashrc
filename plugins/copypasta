@@ -1,0 +1,6 @@
+# Enables the ability to paste scripts from the internet that leave
+# the $ mark behind making them impossible to run by default.
+#
+# This breaks programs that use the binary name $ however.
+
+alias $=""
