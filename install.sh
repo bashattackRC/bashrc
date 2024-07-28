@@ -207,6 +207,7 @@ cp -r ~/.omb-git/themes ~/.omb/themes
 cp -r ~/.omb-git/plugins ~/.omb/plugins
 cp ~/.omb-git/omb_init.sh ~/.omb/omb_init.sh
 echo >> ~/.bashrc
+echo "# don't change anything after this!" >> ~/.bashrc
 echo "source $HOME/.omb/omb_init.sh" >> ~/.bashrc
 rm -rf ~/.omb-git
 echo "Installed! Hit any key to use your customised bash shell:"
