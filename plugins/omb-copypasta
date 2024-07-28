@@ -2,7 +2,7 @@
 # the $ mark behind making them impossible to run by default.
 
 copypasta() {
-    local tmp_file="/tmp/copypasta"
+    local tmp_file="/tmp/copypasta$RANDOM"
 
     # Create the temporary file
     touch "$tmp_file"
