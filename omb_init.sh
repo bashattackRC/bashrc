@@ -95,9 +95,7 @@ source ~/.omb/themes/omb-$theme
 # Create ba function
 ba() {
   if [[ "$1" == "" ]]; then
-    echo 'This function allows you to configure Bash Attack,
-enable plugins, choose themes, and more.
---- Usage ---------------------------------------
+    echo '--- Usage ---------------------------------------
   ba command [element tool]
 --- Commands ------------------------------------
   Utilities
@@ -115,6 +113,8 @@ enable plugins, choose themes, and more.
     doctor    Trouble-shoot issues with ba.
     
     issueinf  Generate information that must be provided in bug reports.
+
+    refresh   Refresh the theme. Usually done automatically when switching themes.
     
   About
     help      Read help pages.
@@ -197,6 +197,8 @@ enable plugins, choose themes, and more.
       fi
   elif [[ "$1" == "reload" ]]; then
       exec bash
+  elif [[ "$1" == "refresh" ]]; then
+      refresh_theme
   elif [[ "$1" == "help" ]]; then
       if [ -z "$2" ]; then
         echo "Please specify a document (e.g. omb help omb):"
