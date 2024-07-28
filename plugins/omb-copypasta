@@ -8,7 +8,7 @@ copypasta() {
     touch "$tmp_file"
 
     # Open the file
-    edit_file "$tmp-file"
+    edit-file "$tmp_file"
 
     # Remove $ signs from the beginning of each line
     sed -i 's/^\$//' "$tmp_file"
