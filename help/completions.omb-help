@@ -3,7 +3,7 @@ to the `ba` command, and also allows you to place your own
 completion scripts in ~/.omb/completions.
 
 Note that this plugin doesn't offer the ability to use
-completions in your terminal. You should have that already,
+completions theirselves. You should have that already,
 via the bash-completion system on most distros.
 
 Custom Completions
