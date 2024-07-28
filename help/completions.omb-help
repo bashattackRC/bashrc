@@ -7,7 +7,7 @@ completions theirselves. You should have that already,
 via the bash-completion system on most distros.
 
 Custom Completions
-  Completions are prefixed with `omb-` without quotes and with
+  These scripts are prefixed with `omb-` without quotes and with
   the dash. Here`s a base:
   _baz()
   {
