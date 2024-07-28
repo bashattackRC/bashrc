@@ -14,8 +14,7 @@ copypasta() {
     sed -i 's/^\$//' "$tmp_file"
 
     # Run the script (replace with your actual command)
-    # Example: source "$tmp_file"
-    # Note: Adjust this step based on your specific use case
+    source "$tmp_file"
 
     # Delete the temporary file
     rm "$tmp_file"
