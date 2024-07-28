@@ -1,0 +1,14 @@
+These are some plugins we highly prefer:
+
+1. copypasta
+   This lets you paste scripts from the internet that leave the dollar
+   sign behind each line, without having to remove them.
+   This saves time having to use tools to remove them.
+2. git
+   Enabled by default, this is a plugin that allows you to see your
+   working Git branches in your prompt (at least for most themes).
+   It also provides a few handy aliases.
+3. gh-shell
+   This is for the gh-shell extension for GitHub CLI - it replaces the
+   bash_history file with a GitHub gist. We only recommend using this
+   if you don't plan to enter commands with personal info, however.
